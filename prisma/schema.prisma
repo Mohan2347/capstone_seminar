@@ -1,0 +1,140 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  STUDENT
+  COMPANY
+  ADMIN
+}
+
+enum FeedbackAction {
+  VIEWED
+  APPLIED
+  SAVED
+  DISMISSED
+}
+
+model User {
+  id        String   @id @default(cuid())
+  clerkId   String   @unique
+  email     String   @unique
+  role      Role     @default(STUDENT)
+  student   Student?
+  company   Company?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Student {
+  id                  String           @id @default(cuid())
+  userId              String           @unique
+  user                User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name                String
+  bio                 String?
+  avatarUrl           String?
+  gpa                 Float?
+  major               String?
+  university          String?
+  graduationYear      Int?
+  skills              Json             @default("[]")
+  experience          Json             @default("[]")
+  preferredRoles      Json             @default("[]")
+  preferredIndustries Json             @default("[]")
+  preferredLocations  Json             @default("[]")
+  workTypes           Json             @default("[]")
+  personality         Json             @default("{}")
+  embedding           Json?
+  embeddingUpdatedAt  DateTime?
+  recommendations     Recommendation[]
+  feedback            Feedback[]
+  createdAt           DateTime         @default(now())
+  updatedAt           DateTime         @updatedAt
+}
+
+model Company {
+  id          String       @id @default(cuid())
+  userId      String       @unique
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name        String
+  industry    String?
+  description String?
+  website     String?
+  logoUrl     String?
+  internships Internship[]
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
+
+model Internship {
+  id                 String           @id @default(cuid())
+  companyId          String
+  company            Company          @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  title              String
+  description        String
+  requiredSkills     Json             @default("[]")
+  preferredSkills    Json             @default("[]")
+  requiredGpa        Float?
+  industry           String?
+  location           String?
+  workType           String?
+  duration           String?
+  stipend            String?
+  openings           Int              @default(1)
+  deadline           DateTime?
+  isActive           Boolean          @default(true)
+  embedding          Json?
+  embeddingUpdatedAt DateTime?
+  recommendations    Recommendation[]
+  feedback           Feedback[]
+  createdAt          DateTime         @default(now())
+  updatedAt          DateTime         @updatedAt
+}
+
+model Recommendation {
+  id                 String     @id @default(cuid())
+  studentId          String
+  student            Student    @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  internshipId       String
+  internship         Internship @relation(fields: [internshipId], references: [id], onDelete: Cascade)
+  contentScore       Float
+  collaborativeScore Float      @default(0)
+  hybridScore        Float
+  rank               Int
+  feedback           Feedback[]
+  createdAt          DateTime   @default(now())
+
+  @@unique([studentId, internshipId])
+  @@index([studentId, hybridScore])
+}
+
+model Feedback {
+  id               String          @id @default(cuid())
+  studentId        String
+  student          Student         @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  internshipId     String
+  internship       Internship      @relation(fields: [internshipId], references: [id], onDelete: Cascade)
+  recommendationId String?
+  recommendation   Recommendation? @relation(fields: [recommendationId], references: [id])
+  action           FeedbackAction
+  rating           Int?
+  createdAt        DateTime        @default(now())
+
+  @@index([studentId])
+  @@index([internshipId])
+}
+
+model ModelWeights {
+  id                  String   @id @default(cuid())
+  contentWeight       Float    @default(0.6)
+  collaborativeWeight Float    @default(0.4)
+  threshold           Float    @default(0.3)
+  topK                Int      @default(10)
+  learningRate        Float    @default(0.01)
+  updatedAt           DateTime @updatedAt
+}
