@@ -245,12 +245,14 @@ export default function ProfilePage() {
                 )}
               </div>
               <div>
-                <Label className="text-foreground/80 text-sm">GPA (0–4.0)</Label>
+                <Label className="text-foreground/80 text-sm">CGPA (0–10)</Label>
                 <Input
                   {...register("gpa")}
                   type="number"
                   step="0.01"
-                  placeholder="3.8"
+                  min="0"
+                  max="10"
+                  placeholder="8.5"
                   className="mt-1 bg-muted border-border text-foreground placeholder:text-muted-foreground/50"
                 />
               </div>

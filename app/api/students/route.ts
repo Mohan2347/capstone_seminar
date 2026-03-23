@@ -8,7 +8,7 @@ const studentSchema = z.object({
   name: z.string().min(1),
   bio: z.string().optional(),
   avatarUrl: z.string().optional(),
-  gpa: z.number().min(0).max(4).optional(),
+  gpa: z.number().min(0).max(10).optional(),
   major: z.string().optional(),
   university: z.string().optional(),
   graduationYear: z.number().int().optional(),

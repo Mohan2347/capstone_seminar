@@ -21,9 +21,9 @@ export default async function DashboardLayout({
         <div className="h-16 flex items-center gap-2 px-6 border-b border-sidebar-border">
           <Sparkles className="h-5 w-5 text-primary" />
           <span className="font-semibold text-sidebar-foreground">SmartMatch</span>
-          <Badge className="text-xs bg-primary/20 text-primary border-primary/30 ml-1">
+          {/* <Badge className="text-xs bg-primary/20 text-primary border-primary/30 ml-1">
             AI
-          </Badge>
+          </Badge> */}
         </div>
 
         <SidebarNav />
@@ -33,9 +33,10 @@ export default async function DashboardLayout({
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Top bar */}
         <header className="h-14 border-b border-border bg-background flex items-center justify-between px-6 shrink-0">
-          <Link href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-            SmartMatch AI
-          </Link>
+          {/* <Link href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            SmartMatch 
+          </Link> */}
+          <div></div>
           <UserButton />
         </header>
 
