@@ -118,7 +118,7 @@ export default async function InternshipDetailPage({ params }: Props) {
                 Required Skills
               </p>
               <div className="flex flex-wrap gap-2">
-                {internship.requiredSkills.map((skill) => (
+                {((internship.requiredSkills as string[]) ?? []).map((skill) => (
                   <Badge
                     key={skill}
                     className="bg-primary/15 text-primary border-primary/30"
@@ -129,13 +129,13 @@ export default async function InternshipDetailPage({ params }: Props) {
               </div>
             </div>
 
-            {internship.preferredSkills.length > 0 && (
+            {((internship.preferredSkills as string[]) ?? []).length > 0 && (
               <div>
                 <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-2">
                   Nice to Have
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {internship.preferredSkills.map((skill) => (
+                  {((internship.preferredSkills as string[]) ?? []).map((skill) => (
                     <Badge
                       key={skill}
                       variant="outline"
