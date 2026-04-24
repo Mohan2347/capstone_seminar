@@ -9,6 +9,7 @@ import {
   Briefcase,
   Building2,
   Heart,
+  Send,
 } from "lucide-react";
 
 const navItems = [
@@ -16,6 +17,7 @@ const navItems = [
   { href: "/recommendations", label: "Recommendations", icon: Bookmark },
   { href: "/internships", label: "Browse Internships", icon: Briefcase },
   { href: "/saved", label: "Saved", icon: Heart },
+  { href: "/applied", label: "Applied", icon: Send },
   { href: "/profile", label: "My Profile", icon: User },
   { href: "/company", label: "Company", icon: Building2 },
 ];

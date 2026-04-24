@@ -53,6 +53,12 @@ export default async function InternshipDetailPage({ params }: Props) {
     ? Math.ceil((new Date(internship.deadline).getTime() - Date.now()) / (1000 * 60 * 60 * 24))
     : null;
 
+  const websiteUrl = internship.company.website
+    ? internship.company.website.startsWith("http")
+      ? internship.company.website
+      : `https://${internship.company.website}`
+    : null;
+
   return (
     <div className="max-w-6xl mx-auto px-6 py-10">
       {/* Back link */}
@@ -170,7 +176,7 @@ export default async function InternshipDetailPage({ params }: Props) {
               </p>
               {internship.company.website && (
                 <a
-                  href={internship.company.website}
+                  href={websiteUrl!}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 mt-3 text-sm text-primary hover:text-primary/80 transition-colors"

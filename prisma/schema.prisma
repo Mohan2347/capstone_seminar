@@ -38,6 +38,7 @@ model Student {
   name                String
   bio                 String?
   avatarUrl           String?
+  resumeUrl           String?
   gpa                 Float?
   major               String?
   university          String?

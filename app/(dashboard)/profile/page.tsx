@@ -23,6 +23,7 @@ import {
   Briefcase,
   Heart,
   Brain,
+  Sparkles,
 } from "lucide-react";
 
 const experienceSchema = z.object({
@@ -35,6 +36,7 @@ const experienceSchema = z.object({
 const profileSchema = z.object({
   name: z.string().min(1, "Name is required"),
   bio: z.string().optional(),
+  resumeUrl: z.string().url("Must be a valid URL").optional().or(z.literal("")),
   gpa: z.string().optional(),
   major: z.string().optional(),
   university: z.string().optional(),
@@ -71,6 +73,10 @@ export default function ProfilePage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [isNew, setIsNew] = useState(false);
+
+  // AI Extraction Stats
+  const [aiLoading, setAiLoading] = useState(false);
+  const [aiError, setAiError] = useState("");
 
   // Tag fields
   const [skills, setSkills] = useState<string[]>([]);
@@ -120,6 +126,7 @@ export default function ProfilePage() {
           reset({
             name: s.name,
             bio: s.bio ?? "",
+            resumeUrl: s.resumeUrl ?? "",
             gpa: s.gpa != null ? String(s.gpa) : "",
             major: s.major ?? "",
             university: s.university ?? "",
@@ -144,6 +151,54 @@ export default function ProfilePage() {
         setLoading(false);
       });
   }, [reset]);
+
+  const handleAiUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setAiLoading(true);
+    setAiError("");
+    
+    const formData = new FormData();
+    formData.append("resume", file);
+
+    try {
+      const res = await fetch("/api/parser", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await res.json();
+      
+      if (!res.ok) throw new Error(data.error || "Failed to parse");
+
+      const aiProfile = data.profile;
+      
+      // Selectively reset profile while keeping non-parsed things intact
+      reset({
+        name: aiProfile.name || watch("name"),
+        bio: aiProfile.bio || watch("bio"),
+        resumeUrl: watch("resumeUrl"),
+        gpa: aiProfile.gpa || watch("gpa"),
+        major: aiProfile.major || watch("major"),
+        university: aiProfile.university || watch("university"),
+        graduationYear: aiProfile.graduationYear || watch("graduationYear"),
+        experience: aiProfile.experience?.length ? aiProfile.experience : watch("experience"),
+        personality: watch("personality"),
+      });
+
+      if (aiProfile.skills?.length) {
+        setSkills(prev => [...new Set([...prev, ...aiProfile.skills])]);
+      }
+
+      toast.success("AI Autofill Complete!", { description: "Review extracted data below." });
+    } catch (err: any) {
+      setAiError(err.message);
+      toast.error("Extraction Failed");
+    } finally {
+      setAiLoading(false);
+      e.target.value = ""; // Reset the input visual
+    }
+  };
 
   const addTag = (
     input: string,
@@ -256,6 +311,18 @@ export default function ProfilePage() {
                   className="mt-1 bg-muted border-border text-foreground placeholder:text-muted-foreground/50"
                 />
               </div>
+            </div>
+
+            <div>
+              <Label className="text-foreground/80 text-sm">Resume Link (Google Drive, Portfolio, etc.)</Label>
+              <Input
+                {...register("resumeUrl")}
+                placeholder="https://drive.google.com/..."
+                className="mt-1 bg-muted border-border text-foreground placeholder:text-muted-foreground/50"
+              />
+              {errors.resumeUrl && (
+                <p className="text-destructive text-xs mt-1">{errors.resumeUrl.message}</p>
+              )}
             </div>
 
             <div>
@@ -537,6 +604,32 @@ export default function ProfilePage() {
                 />
               </div>
             ))}
+          </CardContent>
+        </Card>
+
+        {/* AI Auto-fill from Resume */}
+        <Card className="bg-primary/5 border-primary/20">
+          <CardHeader className="pb-2">
+            <CardTitle className="text-base flex items-center gap-2 text-primary">
+              <Sparkles className="h-4 w-4" />
+              Auto-Fill using AI
+            </CardTitle>
+            <CardDescription className="text-sm">
+              Upload your PDF or DOCX resume to instantly extract your skills, bio, and experience directly into this form!
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="flex items-center gap-4">
+              <Input
+                type="file"
+                accept=".pdf,.docx"
+                disabled={aiLoading}
+                className="max-w-sm file:mr-4 file:py-1 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20"
+                onChange={handleAiUpload}
+              />
+              {aiLoading && <Loader2 className="h-5 w-5 animate-spin text-primary" />}
+            </div>
+            {aiError && <p className="text-destructive text-sm mt-2">{aiError}</p>}
           </CardContent>
         </Card>
 

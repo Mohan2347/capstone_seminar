@@ -627,37 +627,39 @@ async function main() {
 
   // 2. Seed companies + internships
   for (const companyData of companies) {
-    // Check if this seed company already exists
-    const existing = await db.user.findUnique({
+    const existingUser = await db.user.findUnique({
       where: { clerkId: companyData.clerkId },
+      include: { company: true },
     });
 
-    if (existing) {
-      console.log(`  Company "${companyData.name}" already seeded — skipping`);
-      continue;
+    let companyId = "";
+
+    if (existingUser && existingUser.company) {
+      console.log(`  Company "${companyData.name}" exists — appending expanded permutations...`);
+      companyId = existingUser.company.id;
+    } else {
+      // Create the seed user
+      const user = await db.user.create({
+        data: {
+          clerkId: companyData.clerkId,
+          email: companyData.email,
+          role: "COMPANY",
+        },
+      });
+
+      // Create the company profile
+      const company = await db.company.create({
+        data: {
+          userId: user.id,
+          name: companyData.name,
+          industry: companyData.industry,
+          description: companyData.description,
+          website: companyData.website,
+        },
+      });
+      companyId = company.id;
+      console.log(`  Created company: ${companyData.name}`);
     }
-
-    // Create the seed user
-    const user = await db.user.create({
-      data: {
-        clerkId: companyData.clerkId,
-        email: companyData.email,
-        role: "COMPANY",
-      },
-    });
-
-    // Create the company profile
-    const company = await db.company.create({
-      data: {
-        userId: user.id,
-        name: companyData.name,
-        industry: companyData.industry,
-        description: companyData.description,
-        website: companyData.website,
-      },
-    });
-
-    console.log(`  Created company: ${companyData.name}`);
 
     // Create internships for this company
     const internships = internshipData.filter(
@@ -668,26 +670,27 @@ async function main() {
       const { companyKey, ...internshipFields } = internship;
       void companyKey;
 
-      await db.internship.create({
-        data: {
-          companyId: company.id,
-          title: internshipFields.title,
-          description: internshipFields.description,
-          requiredSkills: internshipFields.requiredSkills,
-          preferredSkills: internshipFields.preferredSkills,
-          requiredGpa: internshipFields.requiredGpa,
-          industry: internshipFields.industry,
-          location: internshipFields.location,
-          workType: internshipFields.workType,
-          duration: internshipFields.duration,
-          stipend: internshipFields.stipend,
-          openings: internshipFields.openings,
-          deadline: internshipFields.deadline,
-          isActive: true,
-        },
-      });
-
-      console.log(`    + "${internshipFields.title}"`);
+      for (let variant = 1; variant <= 4; variant++) {
+        await db.internship.create({
+          data: {
+            companyId: companyId,
+            title: `${internshipFields.title} (Team ${variant + 1})`,
+            description: internshipFields.description,
+            requiredSkills: internshipFields.requiredSkills,
+            preferredSkills: internshipFields.preferredSkills,
+            requiredGpa: internshipFields.requiredGpa,
+            industry: internshipFields.industry,
+            location: variant % 2 === 0 ? internshipFields.location : "Remote/Global",
+            workType: variant % 2 === 0 ? internshipFields.workType : "remote",
+            duration: internshipFields.duration,
+            stipend: internshipFields.stipend,
+            openings: internshipFields.openings + variant,
+            deadline: internshipFields.deadline,
+            isActive: true,
+          },
+        });
+        console.log(`    + Generated variant "${internshipFields.title} (Team ${variant + 1})"`);
+      }
     }
   }
 

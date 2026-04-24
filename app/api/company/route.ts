@@ -1,4 +1,4 @@
-import { auth } from "@clerk/nextjs/server";
+import { auth, currentUser } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { z } from "zod";
@@ -42,8 +42,17 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
   }
 
-  const user = await db.user.findUnique({ where: { clerkId: userId } });
-  if (!user) return NextResponse.json({ error: "User not found" }, { status: 404 });
+  let user = await db.user.findUnique({ where: { clerkId: userId } });
+  if (!user) {
+    const clerkUser = await currentUser();
+    if (!clerkUser) return NextResponse.json({ error: "User not found" }, { status: 404 });
+    user = await db.user.create({
+      data: {
+        clerkId: userId,
+        email: clerkUser.emailAddresses[0]?.emailAddress ?? "",
+      },
+    });
+  }
 
   const existing = await db.company.findUnique({ where: { userId: user.id } });
   if (existing) {
@@ -73,8 +82,17 @@ export async function PUT(req: Request) {
     return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
   }
 
-  const user = await db.user.findUnique({ where: { clerkId: userId } });
-  if (!user) return NextResponse.json({ error: "User not found" }, { status: 404 });
+  let user = await db.user.findUnique({ where: { clerkId: userId } });
+  if (!user) {
+    const clerkUser = await currentUser();
+    if (!clerkUser) return NextResponse.json({ error: "User not found" }, { status: 404 });
+    user = await db.user.create({
+      data: {
+        clerkId: userId,
+        email: clerkUser.emailAddresses[0]?.emailAddress ?? "",
+      },
+    });
+  }
 
   const company = await db.company.update({
     where: { userId: user.id },
