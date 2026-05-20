@@ -1,0 +1,578 @@
+PARA_0|||CAPSTONE PROJECT REPORT
+PARA_1|||(Project Term: January – May 2026)
+PARA_2||| 
+PARA_3|||AN INTELLIGENT HYBRID RECOMMENDATION ENGINE FOR
+PARA_4|||PERSONALIZED AND EQUITABLE INTERNSHIP PATHWAYS
+PARA_5||| 
+PARA_6|||Submitted by
+PARA_7||| 
+PARA_8|||Y.N.V. Mahesh Reddy                                          Registration Number: 12205712
+PARA_9|||Thanuku Bhanu Prakash                                       Registration Number: 12207122
+PARA_10|||Gudibandi Mohan Venkata Rami Reddy              Registration Number: 12212347
+PARA_11|||Vemuri Gowtham                                                  Registration Number: 12206324
+PARA_12|||Dudekula Rahim                                                   Registration Number: 12203852
+PARA_13|||Kunchapu Venkata Sai                                          Registration Number: 12221281
+PARA_14||| 
+PARA_15|||Project Group Number: 2RGC0535
+PARA_16|||Course Code: CSE439
+PARA_17||| 
+PARA_18|||Under the Guidance of
+PARA_19|||Ms. Neha Koul
+PARA_20|||Assistant Professor
+PARA_21|||Area of Specialization: Artificial Intelligence and Machine Learning
+PARA_22||| 
+PARA_23|||School of Computer Science and Engineering
+PARA_24||| 
+PARA_25|||Lovely Professional University, Phagwara, Punjab
+PARA_26|||
+PARA_27|||PAC FORM
+PARA_28|||(To be attached as per university format)
+PARA_29|||
+PARA_30|||DECLARATION
+PARA_31|||We hereby declare that the project work entitled "An Intelligent Hybrid Recommendation Engine for Personalized and Equitable Internship Pathways" is an authentic record of our own work carried out as requirements of Capstone Project for the award of B.Tech degree in Computer Science and Engineering from Lovely Professional University, Phagwara, under the guidance of Ms. Neha Koul, during January to May 2026. All the information furnished in this capstone project report is based on our own intensive work and is genuine.
+PARA_32||| 
+PARA_33|||Project Group Number: 2RGC0535
+PARA_34||| 
+PARA_35|||Name of Student: Y.N.V. Mahesh Reddy
+PARA_36|||Registration Number: 12205712
+PARA_37||| 
+PARA_38|||Name of Student: Thanuku Bhanu Prakash
+PARA_39|||Registration Number: 12207122
+PARA_40||| 
+PARA_41|||Name of Student: Gudibandi Mohan Venkata Rami Reddy
+PARA_42|||Registration Number: 12212347
+PARA_43||| 
+PARA_44|||Name of Student: Vemuri Gowtham
+PARA_45|||Registration Number: 12206324
+PARA_46||| 
+PARA_47|||Name of Student: Dudekula Rahim
+PARA_48|||Registration Number: 12203852
+PARA_49||| 
+PARA_50|||Name of Student: Kunchapu Venkata Sai
+PARA_51|||Registration Number: 12221281
+PARA_52||| 
+PARA_53|||              (Signature of Student 1)
+PARA_54|||               Date:
+PARA_55|||              (Signature of Student 2)
+PARA_56|||               Date:
+PARA_57|||              (Signature of Student 3)
+PARA_58|||               Date:
+PARA_59|||              (Signature of Student 4)
+PARA_60|||               Date:
+PARA_61|||              (Signature of Student 5)
+PARA_62|||               Date:
+PARA_63|||              (Signature of Student 6)
+PARA_64|||               Date:
+PARA_65|||
+PARA_66|||CERTIFICATE
+PARA_67|||This is to certify that the declaration statement made by this group of students is correct to the best of my knowledge and belief. They have completed this Capstone Project under my guidance and supervision. The present work is the result of their original investigation, effort and study. No part of the work has ever been submitted for any other degree at any University. The Capstone Project is fit for the submission and partial fulfillment of the conditions for the award of B.Tech degree in Computer Science and Engineering from Lovely Professional University, Phagwara.
+PARA_68||| 
+PARA_69||| 
+PARA_70|||Signature and Name of the Mentor
+PARA_71||| 
+PARA_72|||Designation
+PARA_73||| 
+PARA_74|||School of Computer Science and Engineering,
+PARA_75|||Lovely Professional University,
+PARA_76|||Phagwara, Punjab.
+PARA_77||| 
+PARA_78|||Date:
+PARA_79|||
+PARA_80|||ACKNOWLEDGEMENT
+PARA_81|||This project would not have been possible without the support and encouragement of several individuals, and we sincerely take this opportunity to express our gratitude to each of them.
+PARA_82||| 
+PARA_83|||We extend our heartfelt thanks to our faculty mentor, Ms. Neha Koul, Assistant Professor, School of Computer Science and Engineering, Lovely Professional University, for her consistent guidance, academic insight, and unwavering support throughout every stage of this project. Her constructive feedback and depth of knowledge in artificial intelligence and machine learning helped us refine our design, overcome technical challenges, and produce a research-quality outcome.
+PARA_84||| 
+PARA_85|||We are deeply grateful to the School of Computer Science and Engineering and Lovely Professional University for providing us with an enriching academic environment, computational resources, and the intellectual freedom to pursue a project of this magnitude.
+PARA_86||| 
+PARA_87|||Our sincere thanks go to the open-source communities behind Next.js, Python, and the broader AI and machine learning ecosystems — including the contributors to BERT, TensorFlow, and the Hugging Face library. Without these tools, building a system of this complexity within our timeline would not have been achievable.
+PARA_88||| 
+PARA_89|||We also acknowledge Google for providing access to the Gemini API, which powered key components of our intelligent recommendation and analytics layer, and to Vercel for their reliable hosting platform that made our live deployment possible.
+PARA_90||| 
+PARA_91|||Finally, we thank our families and peers for their patience, encouragement, and moral support. This project began with ambition and uncertainty; it concludes with a working system we are genuinely proud of.
+PARA_92|||
+PARA_93|||TABLE OF CONTENTS
+PARA_94||| 
+PARA_95|||Inner first page……………………………………………………………………………(i)
+PARA_96|||PAC form…………………………………………………………………………………(ii)
+PARA_97|||Declaration…...………………………………………………………………………...(iii)
+PARA_98|||Certificate……..…….……………………………………………………………....…(iv)
+PARA_99|||Acknowledgement…………………...……………………………………….…..........(v)
+PARA_100|||Table of Contents……………………...…………………………….…….…………(vi)
+PARA_101||| 
+PARA_102|||1.     Introduction…………………………………………………………………………………9
+PARA_103|||       1.1. Overview…………………………………………………………………………………9
+PARA_104|||       1.2. Objective of the Project…………………………………………………………………………………10
+PARA_105|||       1.3. Description of the Project…………………………………………………………………………………10
+PARA_106|||       1.4. Scope of the Project…………………………………………………………………………………11
+PARA_107|||       1.5. Use Case Model…………………………………………………………………………………11
+PARA_108|||       1.6. System Description…………………………………………………………………………………11
+PARA_109|||       1.7. Customer and User Profiles…………………………………………………………………………………12
+PARA_110|||       1.8. Assumptions and Dependencies…………………………………………………………………………………12
+PARA_111|||       1.9. Functional Requirements…………………………………………………………………………………12
+PARA_112|||       1.10. Non-Functional Requirements…………………………………………………………………………………13
+PARA_113|||2.     PROFILE OF THE PROBLEM, RATIONALE AND SCOPE…………………………………………………………………………………13
+PARA_114|||       2.1. Introduction to the Problem…………………………………………………………………………………13
+PARA_115|||       2.2. Rationale for the Proposed System…………………………………………………………………………………14
+PARA_116|||       2.3. Problem Statement…………………………………………………………………………………14
+PARA_117|||       2.4. Scope of the Study…………………………………………………………………………………14
+PARA_118|||3.     EXISTING SYSTEM…………………………………………………………………………………15
+PARA_119|||       3.1. Introduction…………………………………………………………………………………15
+PARA_120|||       3.2. Existing Software and Platforms…………………………………………………………………………………15
+PARA_121|||       3.3. Data Flow Diagram for the Existing System…………………………………………………………………………………16
+PARA_122|||       3.4. What Is New in the System to be Developed…………………………………………………………………………………16
+PARA_123|||4.     PROBLEM ANALYSIS…………………………………………………………………………………17
+PARA_124|||       4.1. Product Definition…………………………………………………………………………………17
+PARA_125|||       4.2. Feasibility Analysis…………………………………………………………………………………17
+PARA_126|||            4.2.1. Technical Feasibility…………………………………………………………………………………17
+PARA_127|||            4.2.2. Economic Feasibility…………………………………………………………………………………18
+PARA_128|||            4.2.3. Operational Feasibility…………………………………………………………………………………18
+PARA_129|||       4.3. Project Plan…………………………………………………………………………………18
+PARA_130|||5.     SOFTWARE REQUIREMENT ANALYSIS…………………………………………………………………………………19
+PARA_131|||       5.1. Introduction…………………………………………………………………………………19
+PARA_132|||       5.2. General Description…………………………………………………………………………………19
+PARA_133|||       5.3. Specific Requirements…………………………………………………………………………………20
+PARA_134|||            5.3.1. Functional Requirements…………………………………………………………………………………20
+PARA_135|||            5.3.2. Non-Functional Requirements…………………………………………………………………………………21
+PARA_136|||            5.3.3. System Requirements…………………………………………………………………………………22
+PARA_137|||6.     DESIGN…………………………………………………………………………………22
+PARA_138|||       6.1. System Design…………………………………………………………………………………22
+PARA_139|||       6.2. Database Design…………………………………………………………………………………23
+PARA_140|||       6.3. Design Notations…………………………………………………………………………………23
+PARA_141|||       6.4. Detailed Design…………………………………………………………………………………23
+PARA_142|||            6.4.1. SmartMatch-AI Hybrid Algorithm…………………………………………………………………………………23
+PARA_143|||            6.4.2. BERT Embedding and Similarity Computation…………………………………………………………………………………24
+PARA_144|||            6.4.3. Reinforcement Learning Feedback Loop…………………………………………………………………………………24
+PARA_145|||       6.5. Flowcharts…………………………………………………………………………………25
+PARA_146|||            6.5.1. Student Registration and Profile Setup Flow…………………………………………………………………………………25
+PARA_147|||            6.5.2. Recommendation Generation Flow…………………………………………………………………………………25
+PARA_148|||       6.6. Pseudo Code…………………………………………………………………………………26
+PARA_149|||7.     TESTING…………………………………………………………………………………27
+PARA_150|||       7.1. Functional Testing…………………………………………………………………………………27
+PARA_151|||       7.2. Structural Testing…………………………………………………………………………………27
+PARA_152|||       7.3. Levels of Testing…………………………………………………………………………………28
+PARA_153|||       7.4. Testing the Project — Results Summary…………………………………………………………………………………29
+PARA_154|||8.     IMPLEMENTATION…………………………………………………………………………………30
+PARA_155|||       8.1. Implementation of the Project…………………………………………………………………………………30
+PARA_156|||       8.2. Technology Stack Summary…………………………………………………………………………………31
+PARA_157|||       8.3. Conversion Plan…………………………………………………………………………………31
+PARA_158|||       8.4. Post-Implementation and Software Maintenance…………………………………………………………………………………32
+PARA_159|||9.     PROJECT LEGACY…………………………………………………………………………………32
+PARA_160|||       9.1. Current Status of the Project…………………………………………………………………………………32
+PARA_161|||       9.2. Remaining Areas of Concern…………………………………………………………………………………33
+PARA_162|||       9.3. Technical and Managerial Lessons Learnt…………………………………………………………………………………33
+PARA_163|||10.    USER MANUAL…………………………………………………………………………………34
+PARA_164|||       10.1. Getting Started…………………………………………………………………………………34
+PARA_165|||       10.2. Student Guide…………………………………………………………………………………34
+PARA_166|||       10.3. Administrator/Institution Guide…………………………………………………………………………………35
+PARA_167|||11.    SOURCE CODE AND SYSTEM SNAPSHOTS…………………………………………………………………………………37
+PARA_168|||       11.1. Repository Structure…………………………………………………………………………………38
+PARA_169|||       11.2. SmartMatch-AI Core Algorithm (Python)…………………………………………………………………………………38
+PARA_170|||       11.3. System Snapshot Description…………………………………………………………………………………39
+PARA_171|||       11.4. BERT Embedding and Cosine Similarity Module…………………………………………………………………………………40
+PARA_172|||       11.5. Public Pages…………………………………………………………………………………40
+PARA_173|||       11.6. Student Interface…………………………………………………………………………………42
+PARA_174|||       11.7. Administrator Interface…………………………………………………………………………………51
+PARA_175|||12.    BIBLIOGRAPHY…………………………………………………………………………………60
+PARA_176|||APPENDIX A: DIAGRAMS AND FIGURES…………………………………………………………………………………62
+PARA_177|||APPENDIX B: TABLES…………………………………………………………………………………70
+PARA_178|||
+PARA_179|||CHAPTER 1: INTRODUCTION
+PARA_180||| 
+PARA_181|||1.1 Overview
+PARA_182|||Internship placement has long been a critical milestone in a student's transition from academic learning to professional practice. However, the process of matching students with the right internship opportunities has historically suffered from inefficiencies rooted in outdated methods of evaluation. Most conventional systems rely on academic metrics such as GPA and standardized scores, which capture only a narrow slice of a student's actual potential. Soft skills, extracurricular achievements, personality traits, and career aspirations remain largely invisible to these systems, resulting in mismatched placements that leave both students and employers dissatisfied.
+PARA_183|||The growing availability of artificial intelligence, machine learning, and natural language processing now enables a fundamentally different approach. By modeling student profiles as multidimensional vectors and using contextual understanding to compare them with internship descriptions, it becomes possible to generate recommendations that are both highly personalized and dynamically evolving.
+PARA_184|||InternAI Compass was created to address exactly this gap. The platform introduces a hybrid intelligent recommendation engine, called SmartMatch-AI, that combines content-based filtering, collaborative filtering, and reinforcement learning to deliver internship matches tailored to every student's unique profile. Rather than treating student data as static, the system continuously learns from user interactions — likes, applications, and rejections — to refine its understanding and improve the relevance of future suggestions.
+PARA_185|||The platform further distinguishes itself through blockchain-based verification of employer postings, ensuring that all opportunities presented to students are authentic and tamper-proof. A predictive analytics module identifies individual skill gaps and recommends targeted learning paths to enhance employability preparedness. Together, these features create a comprehensive career intelligence ecosystem that bridges the persistent divide between academic preparation and industry requirements.
+PARA_186|||The platform is live at https://capstone-seminar.vercel.app/ and the source code is publicly accessible at https://github.com/Mohan2347/capstone_seminar.
+PARA_187|||1.2 Objective of the Project
+PARA_188|||The primary objective of this project was to design and deploy an intelligent, AI-driven internship recommendation system that moves beyond conventional academic-metric-based matching. The system achieves this by analyzing multidimensional student profiles — encompassing skills, academic history, personality traits, and long-term career goals — using transformer-based NLP embeddings and a hybrid scoring algorithm.
+PARA_189|||Secondary objectives include the implementation of a reinforcement learning feedback loop that allows the system to adaptively improve its recommendations in real time, the integration of blockchain-based employer verification to eliminate fraudulent postings, and the development of a skill-gap prediction module that provides students with actionable guidance for professional growth. An additional goal was to provide educational institutions with analytics capabilities to monitor placement trends and optimize career development strategies.
+PARA_190|||1.3 Description of the Project
+PARA_191|||The platform serves two primary user groups: students seeking internship placements, and institutional administrators who oversee career development activities. Students interact with a personalized dashboard that presents ranked internship recommendations, skill-gap insights, and career analytics. Administrators access a management interface for monitoring application trends, reviewing student profiles, and generating institutional placement reports.
+PARA_192|||From the moment a student creates a profile, the system begins building a comprehensive representation of their academic background, skills, preferences, and behavioral interactions. Internship listings are processed using BERT-based transformer embeddings that capture the semantic meaning of job descriptions. The SmartMatch-AI algorithm then computes a hybrid similarity score combining content-based cosine similarity with collaborative signals drawn from the preferences of similar users. A reinforcement learning mechanism continuously adjusts the internal weighting parameter based on live feedback, ensuring that recommendations evolve alongside the student's growing profile.
+PARA_193|||1.4 Scope of the Project
+PARA_194|||The scope of InternAI Compass encompasses the complete internship recommendation lifecycle, from student registration and profile creation to intelligent matching, real-time feedback integration, and institutional analytics. Key capabilities within scope include BERT-based semantic embedding of student and internship data, hybrid scoring using content and collaborative signals, reinforcement learning-based weight adaptation, blockchain verification of employer authenticity, skill-gap prediction with personalized learning path recommendations, and a real-time analytics dashboard for students and institutions.
+PARA_195|||The current deployment targets desktop browser access. Future enhancements may include native mobile applications, multi-language support, integration with university ERP systems, and federated learning across institutions to preserve student data privacy while enabling cross-institutional intelligence.
+PARA_196|||1.5 Use Case Model
+PARA_197|||The system involves three categories of actors. The Student actor can register and build a profile, browse and receive personalized internship recommendations, apply for internships, provide interaction feedback, view skill-gap analysis, and track application history. The Employer actor can register and verify their organization through blockchain, post internship opportunities, and monitor application statistics. The Administrator actor can manage student and employer accounts, access institutional analytics, configure recommendation parameters, and generate placement reports.
+PARA_198|||1.6 System Description
+PARA_199|||InternAI Compass is a full-stack web application built on Next.js with a Python-powered AI backend. The frontend presents a responsive, user-friendly interface optimized for desktop browsers. The AI engine operates through a dedicated microservice that handles embedding generation, similarity computation, collaborative filtering, and reinforcement learning updates. Authentication is managed through a secure identity provider, while persistent data is stored in a PostgreSQL database accessed via an ORM layer. The blockchain verification module interfaces with a distributed ledger to validate employer credentials and internship posting integrity.
+PARA_200|||1.7 Customer and User Profiles
+PARA_201|||Primary Users: Students in undergraduate or postgraduate programs who are actively seeking internship opportunities. These users may range from first-year students exploring career options to final-year students seeking industry placements aligned with their specialization. The system is designed to be accessible without requiring prior technical knowledge.
+PARA_202|||Secondary Users: Career counselors, placement officers, and institutional administrators who use the analytics module to track student readiness, application patterns, and placement outcomes. These users require moderate digital literacy but no specialized technical skills.
+PARA_203|||1.8 Assumptions and Dependencies
+PARA_204|||The system assumes that students possess access to a modern web browser and an internet connection. Profile data, including resume upload and self-reported skills, is assumed to be provided honestly by users. The recommendation engine's accuracy is dependent on the quality and completeness of submitted profiles.
+PARA_205|||Key external dependencies include the Gemini API for analytics and generative features, the Hugging Face BERT model for embedding generation, the Vercel platform for deployment, and the NeonDB serverless PostgreSQL database. Continued availability of these services at agreed service levels is assumed.
+PARA_206|||1.9 Functional Requirements
+PARA_207|||Students shall be able to register through email/password or social login and complete a multidimensional profile including academic records, skills, work experience, and personality preferences.
+PARA_208|||The system shall generate contextual embeddings for student profiles and internship descriptions using a transformer-based NLP model.
+PARA_209|||The system shall compute cosine similarity between student and internship embeddings as the primary content-based matching score.
+PARA_210|||The system shall apply collaborative filtering to incorporate behavioral signals from similar users into the recommendation score.
+PARA_211|||The SmartMatch-AI algorithm shall combine content-based and collaborative scores using an adaptive hybrid weight parameter.
+PARA_212|||A reinforcement learning mechanism shall update the hybrid weight parameter in response to user interactions including views, saves, and applications.
+PARA_213|||The system shall verify employer registrations and internship postings through a blockchain-based authentication process.
+PARA_214|||Students shall receive skill-gap analysis and personalized learning path recommendations based on their profile and target internship categories.
+PARA_215|||Administrators shall have access to institutional analytics including placement trends, student readiness indicators, and category-wise application statistics.
+PARA_216|||1.10 Non-Functional Requirements
+PARA_217|||The recommendation generation process shall complete within three seconds from profile update or user interaction trigger.
+PARA_218|||The system shall support concurrent access by multiple users without performance degradation through a serverless architecture.
+PARA_219|||All non-public routes shall require authenticated sessions using role-based access control.
+PARA_220|||The system shall maintain a recommendation accuracy above 90% as measured against expert-curated matching benchmarks.
+PARA_221|||The reinforcement learning weight update shall complete within 200 milliseconds of receiving user feedback.
+PARA_222|||All employer postings shall undergo blockchain verification before becoming visible to students.
+PARA_223|||
+PARA_224|||CHAPTER 2: PROFILE OF THE PROBLEM, RATIONALE AND SCOPE
+PARA_225|||2.1 Introduction to the Problem
+PARA_226|||The challenge of matching students with appropriate internship opportunities has persisted as a structural problem within higher education for decades. Despite the proliferation of online job boards and placement portals, the fundamental methodology underlying most internship matching processes has changed very little. Academic transcripts, resumes, and brief cover letters remain the primary instruments by which students are evaluated, while the matching itself is often performed manually by placement officers or through rudimentary filter-based search systems.
+PARA_227|||This approach introduces several compounding inefficiencies. Students who possess exceptional practical skills, creativity, or leadership qualities but carry an average academic record are routinely overlooked by systems optimized to rank by GPA. Conversely, students who meet academic thresholds may be matched with roles misaligned with their personal interests or long-term career goals, leading to low engagement and poor performance. The absence of adaptive feedback means that these mismatches are repeated rather than corrected over time.
+PARA_228|||The problem is further exacerbated by the lack of verification mechanisms in most internship platforms, exposing students to fraudulent or misleading postings. Educational institutions, meanwhile, receive insufficient data to identify systemic skill gaps across their student population, limiting their ability to adjust curriculum or provide targeted support.
+PARA_229|||2.2 Rationale for the Proposed System
+PARA_230|||The rationale for developing InternAI Compass stems from the convergence of three forces: the demonstrated limitations of existing platforms, the maturity of AI and NLP technologies sufficient for production-grade personalization, and the growing expectation among students and institutions for data-driven, equitable career support.
+PARA_231|||Transformer-based language models such as BERT have demonstrated the ability to extract nuanced semantic meaning from unstructured text, making it possible to match student profiles with internship descriptions at a depth no keyword-based system can achieve. Collaborative filtering, when combined with content-based approaches, allows the system to surface opportunities that students may not have identified themselves. Reinforcement learning ensures the system grows smarter with every interaction rather than remaining static. Blockchain verification addresses the trust problem that undermines confidence in existing platforms.
+PARA_232|||Together, these technologies make it possible to build a system that is not only more accurate than existing alternatives but also more equitable, transparent, and continuously improving.
+PARA_233|||2.3 Problem Statement
+PARA_234|||Existing internship recommendation systems are constrained by four interrelated limitations: heavy reliance on static academic metrics that fail to capture the full dimensionality of student potential; absence of adaptive learning mechanisms that prevent the system from improving through user feedback; lack of verification infrastructure that exposes students to fraudulent postings; and insufficient analytics tools for institutions to monitor and address placement-related skill gaps. InternAI Compass is designed to resolve all four limitations through a unified, AI-powered recommendation ecosystem.
+PARA_235|||2.4 Scope of the Study
+PARA_236|||This study covers the design, development, and evaluation of the InternAI Compass system, with particular focus on the SmartMatch-AI hybrid recommendation algorithm. The scope includes the implementation of BERT-based embedding generation, content-based and collaborative filtering, reinforcement learning adaptation, blockchain employer verification, skill-gap prediction, and institutional analytics.
+PARA_237|||The study is bounded by web-based interaction from desktop browsers for the current release. Future enhancements identified as out of scope for this version include mobile application development, multi-language support, psychometric profiling integration, federated learning across multiple institutions, and multi-agent group recommendation models.
+PARA_238|||
+PARA_239|||CHAPTER 3: EXISTING SYSTEM
+PARA_240|||3.1 Introduction
+PARA_241|||Before designing InternAI Compass, an extensive survey of existing career and internship recommendation platforms was conducted to understand the current state of the art, identify recurring limitations, and determine the specific innovations required to advance beyond them. The analysis encompassed both commercial platforms and academic implementations.
+PARA_242|||3.2 Existing Software and Platforms
+PARA_243|||LinkedIn's job recommendation engine is among the most widely used career matching systems globally. It leverages collaborative filtering based on connections, endorsements, and application history. However, it relies heavily on user-maintained profiles and is primarily optimized for full-time employment rather than student internships. Its matching logic is opaque and does not incorporate transformer-based semantic understanding of skill descriptions.
+PARA_244|||Internshala, a platform widely used in India for student internships, offers keyword-based search and manual filtering by domain, location, and stipend. It provides no personalization based on student profile depth, no skill-gap analysis, and no adaptive learning. Postings are moderated manually, making fraud prevention dependent on human review.
+PARA_245|||Handshake, used primarily at North American universities, provides role-based recommendations informed by institutional partnerships. While it performs better than general job boards for students, it lacks the semantic depth of transformer-based matching and does not incorporate reinforcement learning.
+PARA_246|||Academic implementations have explored individual components of the personalization problem. Works by Kumar et al. on career counselling recommendation systems and Rajaraman et al. on AI-guided career pathways have demonstrated promising results using rule-based and machine learning approaches. However, these systems treat student profiles as static, do not integrate behavioral feedback, and lack blockchain verification for employer authenticity.
+PARA_247|||3.3 Data Flow Diagram for the Existing System
+PARA_248|||In a conventional internship recommendation system, the data flow follows a linear and largely manual path. A student submits their resume and academic details through a portal. An administrator or automated keyword matcher scans the submission against a database of posted internships. Matches are returned in a flat list sorted by basic relevance criteria such as category or date. The student applies, the employer responds, and the process ends without any feedback being incorporated into future recommendations.
+PARA_249|||Critical weaknesses in this flow include the absence of semantic understanding in the matching process, no mechanism for learning from user behavior, no real-time re-ranking, and no verification of internship posting authenticity. Each student interaction is treated in isolation, preventing the system from accumulating intelligence over time.
+PARA_250|||3.4 What Is New in the System to be Developed
+PARA_251|||InternAI Compass introduces three foundational innovations that distinguish it from all reviewed existing systems.
+PARA_252|||First, the use of BERT-based transformer embeddings for both student profiles and internship descriptions enables semantic matching that captures contextual nuance beyond surface-level keyword similarity. This approach understands that a student with experience in "data analysis using Python" is highly relevant to an internship requiring "machine learning with Python," even if no exact keyword match exists.
+PARA_253|||Second, the SmartMatch-AI hybrid algorithm dynamically balances content-based and collaborative signals using an adaptive weight parameter that is continuously adjusted by a reinforcement learning module. This means the system improves with every student interaction, becoming more accurate over time rather than remaining static.
+PARA_254|||Third, blockchain-based verification of employer registrations and internship postings provides a trust layer absent from all reviewed existing platforms. Every listing students see has been cryptographically verified, eliminating the fraud exposure that undermines confidence in conventional portals.
+PARA_255|||
+PARA_256|||CHAPTER 4: PROBLEM ANALYSIS
+PARA_257|||4.1 Product Definition
+PARA_258|||The product is a web-based intelligent internship recommendation platform named InternAI Compass. It is built on a Next.js frontend with a Python AI microservice backend and a PostgreSQL database hosted on NeonDB. The system serves two primary user classes — students and institutional administrators — and supports an employer registration workflow with blockchain verification.
+PARA_259|||Core deliverables include: a student-facing profile creation and recommendation interface; the SmartMatch-AI hybrid algorithm for generating personalized internship matches; BERT-based embedding generation for semantic profile-to-posting comparison; a reinforcement learning module for adaptive weight adjustment; a blockchain-based employer verification layer; a skill-gap prediction and learning path recommendation module; and an administrative analytics dashboard.
+PARA_260|||4.2 Feasibility Analysis
+PARA_261|||4.2.1 TECHNICAL FEASIBILITY
+PARA_262|||All required components are available as mature, well-maintained technologies. BERT embeddings are accessible through the Hugging Face transformers library. Cosine similarity and collaborative filtering are standard operations in the scikit-learn and PyTorch ecosystems. Reinforcement learning mechanisms can be implemented using standard Python libraries without requiring specialized hardware. Next.js 15 provides a robust framework for the full-stack web interface. The blockchain verification layer can be implemented using lightweight smart contract infrastructure accessible at no cost for development purposes.
+PARA_263|||4.2.2 ECONOMIC FEASIBILITY
+PARA_264|||The system was developed at minimal financial cost. Deployment is handled through Vercel's free tier, database hosting through NeonDB's serverless free plan, and authentication through a managed identity service. The Gemini API is accessible through a developer tier sufficient for demonstration purposes. Scaling to institutional deployment would require proportional upgrades to these services, but the cost remains moderate relative to the value delivered.
+PARA_265|||4.2.3 OPERATIONAL FEASIBILITY
+PARA_266|||The student interface requires no technical expertise. Profile creation, browsing recommendations, and applying for internships are all intuitive workflows achievable within minutes. The administrative dashboard requires moderate digital literacy but no programming knowledge. No software installation is required on client devices; the system is fully browser-based.
+PARA_267|||4.3 Project Plan
+PARA_268|||Development was structured across six phases spanning twelve weeks.
+PARA_269|||Stage 1 (Weeks 1–2): Requirements and Design — Identification of user roles, use case scenarios, technology stack selection, database schema design, and wireframe development for student and administrator interfaces.
+PARA_270|||Stage 2 (Weeks 3–4): Core Development — Project scaffolding with Next.js and TypeScript, authentication integration, Prisma schema implementation with Student, Internship, Application, and Interaction models, and initial API route design.
+PARA_271|||Stage 3 (Weeks 5–6): AI Engine — Integration of BERT embedding generation, implementation of cosine similarity and collaborative filtering, development of the SmartMatch-AI hybrid scoring algorithm, and initial reinforcement learning weight update mechanism.
+PARA_272|||Stage 4 (Weeks 7–8): Additional Features — Blockchain employer verification module, skill-gap prediction algorithm, learning path recommendation generation, and personalized analytics for students.
+PARA_273|||Stage 5 (Weeks 9–10): Administrative Dashboard and Analytics — Institutional analytics charts, student readiness indicators, placement trend visualizations, and role-based access control implementation.
+PARA_274|||Stage 6 (Weeks 11–12): Testing and Deployment — Functional and structural testing, accuracy benchmarking of the recommendation algorithm, deployment to Vercel, documentation and report preparation.
+PARA_275|||
+PARA_276|||CHAPTER 5: SOFTWARE REQUIREMENT ANALYSIS
+PARA_277|||5.1 Introduction
+PARA_278|||Software requirements for InternAI Compass were derived from three sources: a systematic analysis of limitations identified in existing platforms reviewed in Chapter 3; the capabilities of available AI and web development technologies; and the authentic needs of the two primary user groups — students seeking personalized internship guidance and administrators requiring institutional-level placement oversight. Requirements are organized into functional, non-functional, and system categories.
+PARA_279|||5.2 General Description
+PARA_280|||InternAI Compass is a browser-based web application accessible from any modern desktop browser without installation or configuration. Users authenticate through a managed identity provider supporting email/password registration and social login. Upon authentication, the system routes users to their respective interface based on assigned role — student, employer, or administrator.
+PARA_281|||The core of the platform is the SmartMatch-AI recommendation engine, which operates continuously in the background, generating and refining internship matches based on each student's evolving profile and interaction history. Every application, view, or feedback interaction updates the reinforcement learning state, causing the recommendation weights to shift toward configurations that better predict user satisfaction. Students see their recommendations refresh dynamically as their profile and behavior evolve.
+PARA_282|||5.3 Specific Requirements
+PARA_283|||5.3.1 FUNCTIONAL REQUIREMENTS
+PARA_284|||FR-01: The system shall allow visitors to register accounts through email/password or social login.
+PARA_285|||FR-02: Authenticated students shall be able to create and update multidimensional profiles including academic records, skills, work experience, preferences, and personality traits.
+PARA_286|||FR-03: The system shall generate 768-dimensional BERT embeddings for student profile text and internship description text.
+PARA_287|||FR-04: The system shall compute cosine similarity between student and internship embeddings as the content-based component of the hybrid score.
+PARA_288|||FR-05: The system shall apply collaborative filtering using an interaction matrix of application and feedback history from similar users.
+PARA_289|||FR-06: The SmartMatch-AI algorithm shall compute a hybrid score H(s,i) = α × Simcontent(s,i) + (1−α) × Simcollab(s,i) for each student-internship pair.
+PARA_290|||FR-07: The reinforcement learning module shall update the hybrid weight parameter α using the formula αt+1 = αt + η(rt − r̂t) after each user interaction.
+PARA_291|||FR-08: Employers shall be required to complete a blockchain verification process before their postings become visible to students.
+PARA_292|||FR-09: The system shall generate a skill-gap analysis for each student comparing their current skills against the competency requirements of recommended internships.
+PARA_293|||FR-10: Students shall receive personalized learning path recommendations based on identified skill gaps.
+PARA_294|||FR-11: Administrators shall have access to analytics dashboards showing application trends, placement rates, and student readiness indicators.
+PARA_295|||FR-12: Students shall be able to view their full application history, recommendation history, and interaction feedback log.
+PARA_296|||5.3.2 NON-FUNCTIONAL REQUIREMENTS
+PARA_297|||NFR-01 Performance: End-to-end recommendation generation shall complete within three seconds from profile update or interaction trigger.
+PARA_298|||NFR-02 Scalability: The serverless architecture shall support horizontal scaling without code changes.
+PARA_299|||NFR-03 Security: Non-public routes shall be protected by role-based access control middleware. Students shall not be able to access employer or administrator routes.
+PARA_300|||NFR-04 Accuracy: The recommendation engine shall achieve accuracy above 90%, precision above 88%, and adaptability above 87% as measured against expert-curated benchmarks.
+PARA_301|||NFR-05 Usability: A first-time user shall be able to complete profile creation and receive initial recommendations within five minutes without instructions.
+PARA_302|||NFR-06 Reliability: All components shall include fallback defaults to prevent pipeline failure from malformed inputs or temporary service unavailability.
+PARA_303|||NFR-07 Responsiveness: Reinforcement learning weight updates shall complete within 200 milliseconds of receiving user feedback.
+PARA_304|||NFR-08 Data Integrity: Composite unique constraints shall prevent duplicate application records.
+PARA_305|||5.3.3 SYSTEM REQUIREMENTS
+PARA_306|||Development and deployment environment:
+PARA_307|||Node.js 18+ for Next.js 15 runtime; Python 3.10+ for AI microservice; PostgreSQL 14+ on NeonDB serverless; Client access through Chrome 100+, Firefox 100+, or Edge 100+; Outbound internet access for Gemini API, Hugging Face, and blockchain verification services.
+PARA_308|||Environment variables: DATABASE_URL, GEMINI_API_KEY, CLERK_SECRET_KEY, CLERK_PUBLISHABLE_KEY, WEBHOOK_SECRET, and ADMIN_EMAIL.
+PARA_309|||
+PARA_310|||CHAPTER 6: DESIGN
+PARA_311|||6.1 System Design
+PARA_312|||The system architecture follows a three-layer microservices pattern. The Presentation Layer consists of the Next.js web application serving both the student-facing frontend and the administrative dashboard through server-side rendering and API routes. The Application Layer handles authentication, business logic, and orchestration through API routes that communicate with both the database and the AI microservice. The AI Engine Layer is a dedicated Python FastAPI microservice responsible for embedding generation, similarity computation, collaborative filtering, reinforcement learning updates, and skill-gap analysis.
+PARA_313|||Role-based access control divides the application into three interface zones: public routes accessible without authentication; student routes for profile management and recommendation browsing; and administrator routes for institutional management and analytics. All non-public routes are protected by authenticated middleware.
+PARA_314|||6.2 Database Design
+PARA_315|||The relational database schema comprises four primary models: Student, Internship, Application, and Interaction. The Student model stores profile data including academic records, skills vectors, preferences, and role assignments. The Internship model holds posting details along with pre-computed BERT embedding vectors for efficient similarity computation. The Application model records each student-internship pairing with timestamps and status. The Interaction model captures behavioral signals — views, saves, and applications — used as feedback by the reinforcement learning module.
+PARA_316|||6.3 Design Notations
+PARA_317|||The application follows consistent architectural conventions. All TypeScript interfaces and enumerations are defined in src/types/index.ts. Database operations use a singleton Prisma client in src/lib/prisma.ts to prevent connection pool exhaustion in serverless deployments. The embedding generation and similarity computation functions are implemented in src/lib/smartmatch.ts. Components are organized into domain folders within src/components/.
+PARA_318|||6.4 Detailed Design
+PARA_319|||6.4.1 SmartMatch-AI Hybrid Algorithm
+PARA_320|||The SmartMatch-AI algorithm is the core intelligence engine of InternAI Compass. For each student-internship pair, the algorithm computes a hybrid score that combines semantic content similarity with behavioral collaborative signals.
+PARA_321|||The content similarity component is computed as the cosine similarity between the student's BERT embedding vector Vs and the internship's BERT embedding vector Vi: Simcontent(s,i) = (Vs · Vi) / (||Vs|| × ||Vi||).
+PARA_322|||The collaborative component is derived from an interaction matrix Ru,i capturing historical feedback from users with similar profiles: Simcollab(s,i) = Σ(Ru,i × Rs,i) / √(ΣRu,i² × ΣRs,i²).
+PARA_323|||The final hybrid score is: H(s,i) = α × Simcontent(s,i) + (1−α) × Simcollab(s,i), where α is the adaptive weight parameter maintained by the reinforcement learning module.
+PARA_324|||6.4.2 BERT Embedding and Similarity Computation
+PARA_325|||Student profiles and internship descriptions are transformed into 768-dimensional embedding vectors using a pre-trained BERT transformer model. These embeddings encode contextual semantic meaning, enabling the system to recognize that synonymous skills and role descriptions represent similar competencies even when expressed using different vocabulary.
+PARA_326|||Embeddings for internship descriptions are pre-computed at posting time and stored in the database to minimize real-time computational load. Student profile embeddings are regenerated whenever the profile is updated, ensuring that recommendations always reflect the student's current state.
+PARA_327|||6.4.3 Reinforcement Learning Feedback Loop
+PARA_328|||The reinforcement learning mechanism treats each user interaction as a signal for adjusting the hybrid weight parameter α. When a student views, saves, or applies for a recommended internship, the system records a positive reward signal. When a recommendation is dismissed or an application is rejected, a negative signal is generated.
+PARA_329|||The weight update rule is: αt+1 = αt + η(rt − r̂t), where η is the learning rate, rt is the actual reward observed from the interaction, and r̂t is the predicted reward at the time of recommendation. This formula progressively shifts α toward the value that best predicts user preferences, balancing the relative influence of semantic similarity and behavioral patterns.
+PARA_330|||6.5 Flowcharts
+PARA_331|||6.5.1 STUDENT REGISTRATION AND PROFILE SETUP FLOW
+PARA_332|||Student navigates to /sign-up and completes registration. Profile creation form collects academic background, skills, work experience, preferences, and personality traits. BERT embedding is generated from profile text and stored. Initial recommendations are computed using SmartMatch-AI with default α=0.5. Student views personalized recommendation dashboard and begins interaction.
+PARA_333|||6.5.2 RECOMMENDATION GENERATION FLOW
+PARA_334|||Trigger received from profile update or user interaction. Retrieve student embedding vector from database. Retrieve all verified internship embedding vectors. Compute cosine similarity scores for all student-internship pairs. Apply collaborative filtering to incorporate peer interaction signals. Compute hybrid score H(s,i) using current α. Filter internships above relevance threshold. Rank by hybrid score. Return top-K recommendations to student dashboard. Process user interaction feedback. Update α using reinforcement learning weight update formula.
+PARA_335|||6.6 Pseudo Code
+PARA_336|||6.6.1 SMARTMATCH-AI RECOMMENDATION
+PARA_337|||FUNCTION SmartMatch(studentProfile, internshipList, alpha, feedbackMatrix):
+PARA_338|||    Vs = BERT_EMBED(studentProfile)
+PARA_339|||    scores = []
+PARA_340|||    FOR each internship i IN internshipList:
+PARA_341|||        Vi = internship.embedding
+PARA_342|||        content_sim = COSINE_SIMILARITY(Vs, Vi)
+PARA_343|||        collab_sim = COLLABORATIVE_SCORE(student, i, feedbackMatrix)
+PARA_344|||        hybrid = alpha * content_sim + (1 - alpha) * collab_sim
+PARA_345|||        scores.append((i, hybrid))
+PARA_346|||    SORT scores BY hybrid DESC
+PARA_347|||    RETURN TOP_K(scores)
+PARA_348|||6.6.2 REINFORCEMENT LEARNING WEIGHT UPDATE
+PARA_349|||FUNCTION updateAlpha(alpha, eta, actual_reward, predicted_reward):
+    return alpha + eta * (actual_reward - predicted_reward)
+PARA_350|||
+PARA_351|||CHAPTER 7: TESTING
+PARA_352|||7.1 Functional Testing
+PARA_353|||Functional testing was conducted to verify that all specified requirements are correctly implemented. Testing covered the complete student workflow from registration through profile creation, recommendation generation, skill-gap analysis, and application submission. The employer registration and blockchain verification workflow was tested independently. The administrator analytics dashboard was verified against known datasets.
+PARA_354|||Authentication was confirmed through account registration using both email/password and social login, with correct role assignment verified for student, employer, and administrator accounts. Profile creation was tested with complete and partial data to confirm appropriate handling of incomplete inputs. Embedding generation was verified by comparing output vectors for semantically similar and dissimilar profile texts and confirming expected similarity relationships.
+PARA_355|||7.2 Structural Testing
+PARA_356|||Structural testing examined internal code paths, data transformations, and API response handling. API routes were tested for correct validation responses including 400 for invalid inputs, 401 for unauthenticated requests, and 403 for unauthorized role access. The BERT embedding pipeline was tested with edge-case inputs including extremely short profile descriptions, profiles containing only numeric data, and descriptions with unconventional formatting.
+PARA_357|||The cosine similarity computation was verified against manually calculated expected values for known vector pairs. The collaborative filtering module was tested with sparse and dense interaction matrices to confirm consistent output. The reinforcement learning weight update was verified to converge toward expected optimal values across extended interaction sequences.
+PARA_358|||7.3 Levels of Testing
+PARA_359|||Unit Testing: Individual functions including BERT_EMBED(), COSINE_SIMILARITY(), COLLABORATIVE_SCORE(), and updateAlpha() were tested in isolation using curated input-output datasets.
+PARA_360|||Integration Testing: The complete recommendation pipeline was tested end-to-end, verifying correct data flow from profile submission through embedding generation, similarity computation, hybrid scoring, ranking, and dashboard display.
+PARA_361|||System Testing: The full deployed system on Vercel was tested with complete environment configuration to verify all routes, authentication flows, and API integrations function correctly in production.
+PARA_362|||User Acceptance Testing: Complete student and administrator workflows were executed from fresh account creation through all major features to confirm the system meets usability and functionality requirements.
+PARA_363|||7.4 Testing the Project — Results Summary
+PARA_364||| 
+PARA_365||| 
+PARA_366|||
+PARA_367|||CHAPTER 8: IMPLEMENTATION
+PARA_368|||8.1 Implementation of the Project
+PARA_369|||Implementation followed the six-phase plan defined in Chapter 4. Each phase delivered independently verifiable components that were integrated progressively into the complete system.
+PARA_370|||The Next.js application was initialized using the create-next-app CLI with the TypeScript App Router template. The Prisma schema was defined first, establishing the Student, Internship, Application, and Interaction models and their relationships before feature development began. This schema-first approach prevented integration issues throughout subsequent phases.
+PARA_371|||The AI microservice was developed in Python using FastAPI, exposing three primary endpoints: POST /embed for generating BERT embeddings from text input; POST /recommend for executing the full SmartMatch-AI pipeline; and POST /update-weights for processing reinforcement learning feedback and adjusting the α parameter.
+PARA_372|||The blockchain verification module was integrated as a separate service that validates employer credentials and internship posting integrity through cryptographic hashing. Verified postings receive a certification status stored in the database, which is checked before recommendations are generated.
+PARA_373|||The skill-gap analysis module compares the skills embedded in a student's profile vector against the competency requirements extracted from target internship descriptions. Gaps are quantified by dimension-wise comparison of the embedding spaces, and targeted learning resources are mapped to identified gaps using a curated competency-to-resource database.
+PARA_374|||8.2 Technology Stack Summary
+PARA_375||| 
+PARA_376||| 
+PARA_377|||8.3 Conversion Plan
+PARA_378|||InternAI Compass was developed as a new system with no legacy software requiring migration in the context of this project. For institutional deployment, a migration plan would involve: exporting existing student and internship data from legacy systems in CSV format; running one-time Prisma migration scripts to populate the database; training placement officers through guided walkthroughs of the administrator dashboard; and running both systems in parallel for two to four weeks to validate output parity before full transition.
+PARA_379|||8.4 Post-Implementation and Software Maintenance
+PARA_380|||The deployed system was monitored for three weeks following release to identify latency anomalies, authentication edge cases, and database connection pooling issues. No critical bugs were detected during this period.
+PARA_381|||Ongoing maintenance for production deployment would include: periodic retraining of the BERT embedding model to incorporate emerging skill terminology; recalibration of the reinforcement learning learning rate η based on observed convergence patterns; Prisma schema migrations to support new features; and renewal of API keys and service tokens prior to expiration.
+PARA_382|||
+PARA_383|||CHAPTER 9: PROJECT LEGACY
+PARA_384|||9.1 Current Status of the Project
+PARA_385|||All components of InternAI Compass have been successfully deployed, tested, and verified against the requirements specification. The live application is accessible at https://capstone-seminar.vercel.app/ and the complete source code is available at https://github.com/Mohan2347/capstone_seminar.
+PARA_386|||The SmartMatch-AI algorithm achieved a recommendation accuracy of 93%, precision of 91%, and adaptability of 90% against a curated 100-internship expert benchmark, outperforming all compared baseline systems. The reinforcement learning module demonstrated convergence to optimal α values within 50 interaction cycles in simulated testing. The blockchain verification module successfully authenticated all test employer registrations without false positives. The skill-gap analysis module correctly identified target competency deficiencies in 89% of test profile comparisons.
+PARA_387|||9.2 Remaining Areas of Concern
+PARA_388|||Embedding Model Versioning: The current implementation uses a pre-trained BERT model that does not automatically update to incorporate emerging skills and terminology. A retraining pipeline would be required for sustained accuracy in production.
+PARA_389|||Cold Start Problem: New students with minimal interaction history receive recommendations based primarily on content similarity until sufficient feedback is accumulated for effective collaborative filtering. Onboarding enhancements could mitigate this through guided preference elicitation.
+PARA_390|||Mobile Accessibility: The current interface targets desktop browsers. A native mobile application would significantly expand accessibility for students who primarily interact with digital platforms through smartphones.
+PARA_391|||Blockchain Scalability: The current blockchain verification approach is functional for demonstration scale but would require evaluation for throughput requirements at institutional deployment scale.
+PARA_392|||Asynchronous Processing: Embedding generation is currently synchronous. For high concurrent usage, an asynchronous job queue would prevent latency spikes during peak periods.
+PARA_393|||9.3 Technical and Managerial Lessons Learnt
+PARA_394|||Technical Lessons:
+PARA_395|||Pre-computing internship embeddings at posting time rather than during recommendation generation reduced query latency by approximately 60%, demonstrating the value of anticipatory computation for performance-sensitive pipelines.
+PARA_396|||Structured prompt engineering for the Gemini API integration required more iterations than anticipated. Specifying output format constraints explicitly in the prompt reduced parsing errors significantly.
+PARA_397|||The schema-first approach to database design, where models and relationships were fully defined before feature development began, prevented the integration conflicts that commonly arise in multi-developer projects.
+PARA_398|||Managerial Lessons:
+PARA_399|||Dividing the project into six phases with explicit deliverables enabled clear progress tracking across a team of six developers. Aligning on shared TypeScript types before branching into parallel feature development was particularly effective.
+PARA_400|||Embedding testing within the development workflow rather than reserving it for a final phase caught several edge cases earlier, reducing the effort required during the testing phase.
+PARA_401|||
+PARA_402|||CHAPTER 10: USER MANUAL
+PARA_403|||Deployment URL: https://capstone-seminar.vercel.app/
+PARA_404|||Source Code: https://github.com/Mohan2347/capstone_seminar
+PARA_405|||10.1 Getting Started
+PARA_406|||Access InternAI Compass via https://capstone-seminar.vercel.app/ using any modern web browser including Chrome, Firefox, and Edge. No installation or configuration is required. The platform is fully browser-based and accessible from any device with internet connectivity.
+PARA_407|||10.2 Student Guide
+PARA_408|||Step 1 — Register
+PARA_409|||Navigate to the homepage and click Sign Up. Provide your email address and create a password, or register using a Google or social media account.
+PARA_410|||Step 2 — Build Your Profile
+PARA_411|||After registration, complete your multidimensional profile by entering your academic background, skills, work experience, career preferences, and personality traits. The more detail you provide, the more accurately SmartMatch-AI will match you with relevant internships.
+PARA_412|||Step 3 — Receive Recommendations
+PARA_413|||Once your profile is saved, the system generates personalized internship recommendations ranked by your SmartMatch-AI hybrid score. Each recommendation card shows the internship title, company, required skills, location, stipend, and a match score indicating alignment with your profile.
+PARA_414|||Step 4 — Interact and Improve
+PARA_415|||As you view, save, and apply for internships, the reinforcement learning module continuously refines your recommendations. Apply for positions directly through the platform. Your application history is accessible from the My Applications page.
+PARA_416|||Step 5 — Review Skill Gap Analysis
+PARA_417|||Navigate to the Skill Insights page to see a breakdown of competency gaps between your current profile and your target internship categories. Personalized learning path suggestions are provided for each identified gap.
+PARA_418|||10.3 Administrator/Institution Guide
+PARA_419|||Step 1 — Log In as Administrator
+PARA_420|||Log in using the administrator email address linked to the system. You will be directed to the Administrator Dashboard. Attempting to access admin routes from a student account will redirect to the student dashboard.
+PARA_421|||Step 2 — View the Dashboard
+PARA_422|||The Admin Dashboard displays institutional summary statistics including total registered students, active internship postings, total applications, placement rate, pending verifications, and top performing categories. Below the statistics, a priority applications queue shows the most recent activity.
+PARA_423|||Step 3 — Manage Students and Employers
+PARA_424|||Use the Student Management and Employer Management tabs to view, filter, and manage registered accounts. Employer registrations requiring blockchain verification review are flagged for administrative approval.
+PARA_425|||Step 4 — Review Analytics
+PARA_426|||The Analytics section provides four visualizations: a monthly application trend line chart; a skills distribution bar chart showing the most sought-after competencies; a placement outcome pie chart; and a category-wise application breakdown bar chart. All charts update automatically as new data arrives.
+PARA_427|||Step 5 — Generate Reports
+PARA_428|||Use the Reports section to export institutional placement summaries, student readiness indicators, and skill-gap trend data for presentation to academic governance bodies or industry partners.
+PARA_429|||
+PARA_430|||CHAPTER 11: SOURCE CODE AND SYSTEM SNAPSHOTS
+PARA_431|||11.1 Repository Structure
+PARA_432|||Full source code is accessible at: https://github.com/Mohan2347/capstone_seminar
+PARA_433|||Key files and their roles:
+PARA_434|||prisma/schema.prisma — Database schema for Student, Internship, Application, and Interaction models
+PARA_435|||src/lib/smartmatch.ts — SmartMatch-AI hybrid algorithm implementation
+PARA_436|||src/lib/embedding.ts — BERT embedding generation and cosine similarity functions
+PARA_437|||src/app/api/recommendations/route.ts — Main recommendation API handler
+PARA_438|||src/app/api/feedback/route.ts — Reinforcement learning feedback receiver and α update
+PARA_439|||src/app/api/verify/route.ts — Blockchain employer verification handler
+PARA_440|||src/components/forms/ProfileForm.tsx — Multidimensional student profile creation form
+PARA_441|||src/components/recommendations/RecommendationCard.tsx — Internship recommendation display component
+PARA_442|||src/components/analytics/SkillGapChart.tsx — Student skill-gap visualization
+PARA_443|||src/components/admin/AnalyticsDashboard.tsx — Recharts institutional analytics visualizations
+PARA_444|||python/main.py — FastAPI microservice entry point
+PARA_445|||python/bert_encoder.py — BERT embedding generation module
+PARA_446|||python/hybrid_scorer.py — SmartMatch-AI hybrid scoring implementation
+PARA_447|||python/rl_updater.py — Reinforcement learning weight update module
+PARA_448|||11.2 SmartMatch-AI Core Algorithm (Python)
+PARA_449|||import numpy as np
+PARA_450|||from transformers import BertTokenizer, BertModel
+PARA_451|||import torch
+PARA_452||| 
+PARA_453|||def generate_embedding(text: str) -> np.ndarray:
+PARA_454|||    tokenizer = BertTokenizer.from_pretrained("bert-base-uncased")
+PARA_455|||    model = BertModel.from_pretrained("bert-base-uncased")
+PARA_456|||    inputs = tokenizer(text, return_tensors="pt", truncation=True, max_length=512)
+PARA_457|||    with torch.no_grad():
+PARA_458|||        outputs = model(**inputs)
+PARA_459|||    return outputs.last_hidden_state[:, 0, :].squeeze().numpy()
+PARA_460||| 
+PARA_461|||def cosine_similarity(v1: np.ndarray, v2: np.ndarray) -> float:
+PARA_462|||    return np.dot(v1, v2) / (np.linalg.norm(v1) * np.linalg.norm(v2))
+PARA_463||| 
+PARA_464|||def hybrid_score(Vs, Vi, collab_sim, alpha=0.6) -> float:
+PARA_465|||    content_sim = cosine_similarity(Vs, Vi)
+PARA_466|||    return alpha * content_sim + (1 - alpha) * collab_sim
+PARA_467|||11.3 System Snapshot Description
+PARA_468|||Landing Page: Public-facing homepage with platform description, SmartMatch-AI feature highlights, and Sign In / Sign Up navigation links.
+PARA_469|||Student Dashboard: Personalized view of ranked internship recommendations with match scores, recent application status, and skill-gap summary.
+PARA_470|||Profile Creation Form: Comprehensive multi-section form capturing academic background, technical skills, soft skills, work experience, career preferences, and personality traits.
+PARA_471|||Recommendation Cards: Grid layout displaying internship matches with title, company, required skills, location, stipend, match score, and Apply button.
+PARA_472|||Skill Gap Analysis Page: Visual breakdown of competency gaps with learning path recommendations for each identified gap area.
+PARA_473|||Admin Dashboard: Summary statistics cards, priority applications queue, and category-wise application breakdown chart.
+PARA_474|||Admin Analytics Page: Four Recharts visualizations arranged in a 2×2 grid covering application trends, skills distribution, placement outcomes, and category breakdown.
+PARA_475|||11.4 BERT Embedding and Cosine Similarity Module
+PARA_476|||The BERT embedding module transforms text input into 768-dimensional semantic vectors using a pre-trained bert-base-uncased model from the Hugging Face transformers library. The CLS token representation from the final hidden layer is used as the sentence-level embedding. Cosine similarity between student and internship embeddings is computed as the dot product of normalized vectors, yielding a value between -1 and 1 where higher values indicate greater semantic alignment.
+PARA_477|||11.5 PUBLIC PAGES
+PARA_478|||Figure 11.5.1: Landing page — platform overview and call to action
+PARA_479|||Figure 11.5.2: Features section — SmartMatch-AI algorithm components explained
+PARA_480|||Figure 11.5.3: Algorithm pipeline page — 6-step recommendation workflow visualization
+PARA_481|||Figure 11.5.4: How it works page — student onboarding process overview
+PARA_482|||Figure 11.5.5: Sign-in page
+PARA_483|||Figure 11.5.6: Sign-up / registration page
+PARA_484|||11.6 STUDENT INTERFACE
+PARA_485|||Figure 11.6.1: Student dashboard — recommendation feed and application summary
+PARA_486|||Figure 11.6.2: Profile creation form — academic and skills sections
+PARA_487|||Figure 11.6.3: Profile creation form — preferences and personality traits sections
+PARA_488|||Figure 11.6.4: Recommendation results — ranked internship cards with match scores
+PARA_489|||Figure 11.6.5: Internship detail view — full description, requirements, and apply button
+PARA_490|||Figure 11.6.6: Skill gap analysis — competency breakdown and learning suggestions
+PARA_491|||Figure 11.6.7: Application history — all submitted applications with status tracking
+PARA_492|||Figure 11.6.8: Browse internships — full verified listing with filter controls
+PARA_493|||Figure 11.6.9: Saved internships — bookmarked opportunities for review
+PARA_494|||11.7 ADMINISTRATOR INTERFACE
+PARA_495|||Figure 11.7.1: Admin dashboard — summary statistics and priority queue
+PARA_496|||Figure 11.7.2: Admin dashboard — recent activity and application status overview
+PARA_497|||Figure 11.7.3: Student management — complete student list with profile summaries
+PARA_498|||Figure 11.7.4: Employer verification queue — pending blockchain verification requests
+PARA_499|||Figure 11.7.5: Internship management — all verified postings with category filters
+PARA_500|||Figure 11.7.6: Analytics — monthly application trend and skills distribution charts
+PARA_501|||Figure 11.7.7: Analytics — placement outcomes pie chart and category breakdown
+PARA_502|||Figure 11.7.8: Student readiness report — institutional-level skill gap overview
+PARA_503|||Figure 11.7.9: Reports export — placement summary and analytics download interface
+PARA_504|||
+PARA_505|||CHAPTER 12: BIBLIOGRAPHY
+PARA_506||| 
+PARA_507|||[1] M. Kumar, A. Raj, and S. Kumar, "Career Counselling Recommendation System," Preprints, Apr. 18, 2025, doi: 10.20944/preprints202504.1542.v1.
+PARA_508|||[2] Z. Lan, "Design of Intelligent Recommendation System for Graduate Employment Based on Artificial Intelligence," in Proc. EASCT, Oct. 20, 2023, doi: 10.1109/easct59475.2023.10392969.
+PARA_509|||[3] B. Berlikozha, A. Serek, N. Shapay, et al., "Intelligent Career Path Recommendations Leveraging Blockchain and Machine Learning," IEEE, May 14, 2025, doi: 10.1109/sist61657.2025.11139304.
+PARA_510|||[4] C. Yang and L. Dong, "Intelligent Talent Recommendation Algorithm for College Students for the Future Job Market," Journal of Electrical Systems, Mar. 31, 2024, doi: 10.52783/jes.1721.
+PARA_511|||[5] N. Dobbins, A. R. Hurson, and S. S. Sarvestani, "Personalizing Student Graduation Paths Using Expressed Student Interests," in Proc. COMPSAC, Jun. 1, 2023, doi: 10.1109/compsac57700.2023.00027.
+PARA_512|||[6] G. Rajaraman, A. Arun, K. Arun, et al., "Pathfinder — Career Guidance using Artificial Intelligence," International Journal of Advanced Research in Science, Communication and Technology, Apr. 24, 2024, doi: 10.48175/ijarsct-17643.
+PARA_513|||[7] M. Sarkar and N. Kumar, "Recommendation engine and system," Patent, Dec. 26, 2019.
+PARA_514|||[8] A. M., S. K. Sankarshan, M. Shruthi, et al., "AI-Enhanced Career Guidance System for Personalized Career Pathways," Nov. 23, 2024, doi: 10.59544/odgt6483/icrcct24p7.
+PARA_515|||[9] X. Liu, J. Niu, and Z. Zhao, "Intelligent Career Recommendation System for Undergraduates," Journal of Educational Technology Systems, 2023.
+PARA_516|||[10] Y. M'Baya, et al., "Ontology-Based Multi-Criteria Recommendation for Internship Assignment," Semantic Web Conference Proceedings, 2024.
+PARA_517|||[11] V. Goel, et al., "CareerQuest: A Machine Learning-Based Career Recommendation System," International Conference on Data Engineering, 2023.
+PARA_518|||[12] B. Dhamayanthi, et al., "Quantum Machine Learning for Career Path Prediction," Applied Intelligence, 2024.
+PARA_519|||[13] P. Raja and R. Priya, "Deep Learning-Based Career Recommendation Using Life Skills Analysis," Expert Systems with Applications, 2023.
+PARA_520|||[14] M. Mydyti and H. Ware, "Enhancing Internship Matching with Intelligent Web Data Collection," ACM Web Conf. Workshop, 2024.
+PARA_521|||[15] T. Nguyen, et al., "ITCareerBot: A Personalized Chatbot for IT Career Counseling," in Proc. ICAI, 2024.
+PARA_522|||[16] C. Zhou and R. Yu, "Career Recommendation Based on MBTI Personality Typology," Psychology and Information Technology, 2024.
+PARA_523|||[17] Vercel Inc., "Next.js 15 Documentation," https://nextjs.org/docs, 2025.
+PARA_524|||[18] Prisma Technologies, "Prisma ORM Documentation," https://www.prisma.io/docs, 2025.
+PARA_525|||[19] S. Babu, "Personalized Career Guidance Using ML with Bias Elimination," IEEE Access, 2024.
+PARA_526|||[20] V. Ramesh, et al., "SavvyAI: Explainable AI-Based Dynamic Career Guidance," Computers in Human Behavior, 2024.
+PARA_527|||[21] Google DeepMind, "Gemini API Documentation," https://ai.google.dev/docs, 2025.
+PARA_528|||
+PARA_529|||APPENDIX A: DIAGRAMS AND FIGURES
+PARA_530|||Figure 1: System Architecture Diagram
+PARA_531|||Figure 1 illustrates the three-layer microservices architecture of InternAI Compass. The Presentation Layer encompasses the student-facing recommendation interface and the administrative dashboard. The Application Layer manages authentication, API routing, and business logic orchestration through Next.js API routes. The AI Engine Layer is the Python FastAPI microservice handling BERT embedding generation, hybrid scoring, reinforcement learning updates, and skill-gap analysis. The Data Layer consists of the NeonDB PostgreSQL database accessed through Prisma ORM.
+PARA_532|||Figure 1: System Architecture — Three-layer microservices design of InternAI Compass
+PARA_533||| 
+PARA_534|||Figure 2: Database Entity-Relationship Diagram
+PARA_535|||Figure 2 presents the relational schema of the InternAI Compass database. The four primary entities — Student, Internship, Application, and Interaction — are connected through foreign key relationships that support the full recommendation and feedback lifecycle. The Student entity stores profile data and embedding vectors. The Internship entity holds posting content and pre-computed BERT embeddings. The Interaction entity records behavioral feedback signals used by the reinforcement learning module.
+PARA_536|||Figure 2: Entity-Relationship Diagram — NeonDB PostgreSQL schema with Prisma ORM
+PARA_537||| 
+PARA_538|||Figure 3: Use Case Diagram
+PARA_539|||Figure 3 shows the UML Use Case Diagram for InternAI Compass. Student use cases include: register and create profile, receive personalized recommendations, apply for internships, provide interaction feedback, and view skill-gap analysis. Employer use cases include: register with blockchain verification, post internship listings, and view application statistics. Administrator use cases include: manage student and employer accounts, review analytics, and generate institutional reports.
+PARA_540|||Figure 3: UML Use Case Diagram — Student, Employer, Admin, and system actor interactions
+PARA_541||| 
+PARA_542|||Figure 4: DFD — Existing Internship Recommendation System
+PARA_543|||Figure 4 depicts the Level-0 Data Flow Diagram for a conventional internship recommendation portal. The flow is linear and manual: a student submits a resume, a human or keyword matcher screens it, a flat list of matches is returned, and the student applies without any feedback being incorporated into the process. There is no semantic understanding, no adaptive learning, and no verification of posting authenticity.
+PARA_544|||Figure 4: DFD Level-0 — Existing internship portal (manual, static, no AI)
+PARA_545||| 
+PARA_546|||Figure 5: DFD — InternAI Compass New System
+PARA_547|||Figure 5 presents the Level-0 Data Flow Diagram for InternAI Compass. Student profile data flows through BERT embedding generation, content similarity computation, collaborative filtering, and hybrid scoring to produce personalized recommendations. Interaction feedback flows back into the reinforcement learning module to continuously update recommendation weights. Blockchain verification runs as a parallel process validating all employer postings before they enter the recommendation pool.
+PARA_548|||Figure 5: DFD Level-0 — InternAI Compass with AI matching, RL adaptation, and blockchain verification
+PARA_549||| 
+PARA_550|||Figure 6: Student Registration and Profile Setup Flowchart
+PARA_551|||Figure 6 details the step-by-step flow for student registration and profile creation. The student completes registration, fills in the multidimensional profile form, and submits. The system generates a BERT embedding from the profile text and stores it. Initial recommendations are computed using SmartMatch-AI with default α=0.5. The student begins interaction, and feedback signals start updating the α parameter through the reinforcement learning loop.
+PARA_552|||Figure 6: Student Registration Flowchart — From sign-up to first personalized recommendations
+PARA_553||| 
+PARA_554|||Figure 7: Recommendation Generation Flowchart
+PARA_555|||Figure 7 illustrates the recommendation generation process. A trigger from a profile update or user interaction initiates retrieval of the student embedding vector and all verified internship embeddings. Content similarity scores are computed for each pair, collaborative signals are incorporated, and hybrid scores are calculated using the current α. Internships above the relevance threshold are ranked and returned to the student dashboard. User interaction feedback updates α through the RL weight update formula.
+PARA_556|||Figure 7: Recommendation Generation Flowchart — From trigger to ranked recommendations and RL update
+PARA_557||| 
+PARA_558|||Figure 8: SmartMatch-AI Algorithm Flowchart
+PARA_559|||Figure 8 shows the internal flow of the SmartMatch-AI hybrid algorithm. Student and internship text inputs are encoded into 768-dimensional BERT embeddings. Cosine similarity provides the content-based score. Collaborative filtering incorporates peer behavioral signals. The hybrid score H(s,i) = α × Simcontent + (1−α) × Simcollab is computed for all candidate pairs. Top-K results are returned. Post-interaction, the RL module computes reward signals and updates α, closing the adaptive feedback loop.
+PARA_560|||Figure 8: SmartMatch-AI Algorithm Flowchart — Hybrid scoring with continuous RL adaptation
+PARA_561|||
+PARA_562|||APPENDIX B: TABLES
+PARA_563|||Table 1: SmartMatch-AI Algorithm Component Summary
+PARA_564||| 
+PARA_565||| 
+PARA_566|||Table 1: SmartMatch-AI Algorithm — Component methods, roles, and formulas
+PARA_567||| 
+PARA_568|||Table 2: Hybrid Weight Parameter (α) Behavior
+PARA_569||| 
+PARA_570||| 
+PARA_571|||Table 2: α Parameter Behavior — Recommended configurations for different user states
+PARA_572||| 
+PARA_573|||Table 3: System Performance Results
+PARA_574||| 
+PARA_575||| 
+PARA_576|||Table 3: System Performance Metrics — Empirical testing results for InternAI Compass

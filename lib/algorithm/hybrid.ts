@@ -20,12 +20,17 @@ export interface ScoredInternship {
  */
 async function getStudentEmbedding(student: Student): Promise<number[]> {
   if (student.embedding) return student.embedding as number[];
-  const embedding = await computeStudentEmbedding(student);
-  await db.student.update({
-    where: { id: student.id },
-    data: { embedding, embeddingUpdatedAt: new Date() },
-  });
-  return embedding;
+  try {
+    const embedding = await computeStudentEmbedding(student);
+    await db.student.update({
+      where: { id: student.id },
+      data: { embedding, embeddingUpdatedAt: new Date() },
+    });
+    return embedding;
+  } catch (error) {
+    console.error("Failed to compute student embedding:", error);
+    return new Array(768).fill(0); // Fallback to avoid breaking
+  }
 }
 
 /**
@@ -35,12 +40,17 @@ async function getInternshipEmbedding(
   internship: Internship
 ): Promise<number[]> {
   if (internship.embedding) return internship.embedding as number[];
-  const embedding = await computeInternshipEmbedding(internship);
-  await db.internship.update({
-    where: { id: internship.id },
-    data: { embedding, embeddingUpdatedAt: new Date() },
-  });
-  return embedding;
+  try {
+    const embedding = await computeInternshipEmbedding(internship);
+    await db.internship.update({
+      where: { id: internship.id },
+      data: { embedding, embeddingUpdatedAt: new Date() },
+    });
+    return embedding;
+  } catch (error) {
+    console.error(`Failed to compute internship embedding for ${internship.id}:`, error);
+    return new Array(768).fill(0); // Fallback to avoid breaking
+  }
 }
 
 /**

@@ -1,0 +1,117 @@
+## CHAPTER 10: USER MANUAL
+
+### 10.1 GETTING STARTED
+To begin using InternAI Compass, users should navigate to the official platform at `https://capstone-seminar.vercel.app/`. The system is optimized for both desktop and mobile browsers.
+
+1.  **Registration**: Click on the "Sign Up" button on the landing page. Users can register using their Google account, GitHub account, or a personal email through the secure Clerk authentication gateway.
+2.  **Role Selection**: Upon first login, users must select their primary role: **Student**, **Employer**, or **Administrator**.
+3.  **Onboarding**: The system will provide a brief interactive tour of the dashboard and the key features specific to the selected role.
+
+### 10.2 STUDENT GUIDE
+The student dashboard is designed to be the central hub for your career navigation.
+
+1.  **Building Your Intelligent Profile**:
+    - Navigate to the "Profile" section.
+    - **Upload Resume**: Upload your latest resume in PDF format. The system will automatically parse your skills and experiences.
+    - **Add Preferences**: Manually input your preferred internship locations, industries of interest, and soft skills.
+    - **Psychometric Data**: Optionally complete a brief assessment of your professional aspirations and character traits to improve the SmartMatch-AI accuracy.
+2.  **Exploring Recommendations**:
+    - The "Internships" tab will display a ranked list of verified opportunities.
+    - Each listing shows a **Compatibility Score (%)**. Click "Why this fits you" to see the AI's reasoning.
+3.  **Interaction and Feedback**:
+    - Use the **Like** (Heart) icon to save roles for later.
+    - Click **Apply** to send your profile directly to the employer.
+    - Dismiss irrelevant roles. Every action you take trains the model to understand your preferences better.
+4.  **Skill-Gap Analysis**:
+    - Visit the "Analytics" tab to view your employability radar chart.
+    - The system will highlight specific skills (e.g., "SQL", "Project Management") that are missing from your profile based on your target roles and suggest learning resources.
+
+### 10.3 ADMINISTRATOR GUIDE
+Administrators oversee the health and performance of the placement ecosystem.
+
+1.  **Dashboard Overview**: The admin home page displays real-time metrics, including the total number of students placed, trending technologies in current job postings, and overall system engagement levels.
+2.  **Employer Verification**:
+    - Navigate to the "Employers" tab.
+    - Review the documentation submitted by new companies.
+    - Click **Verify** to activate their account and generate their unique blockchain identity.
+3.  **Cohort Analytics**:
+    - Use the "Reports" section to analyze student groups. You can filter by department or graduation year.
+    - Identify students with low engagement or low match scores to provide proactive career counseling.
+4.  **Industry Trends**: Monitor the most in-demand skills requested by employers to help university leadership update curriculum or organize specific upskilling workshops.
+
+---
+
+## CHAPTER 11: SOURCE CODE AND SYSTEM SNAPSHOTS
+
+### 11.1 REPOSITORY STRUCTURE
+The InternAI Compass project is maintained as a modular, full-stack monorepo, ensuring clear separation of concerns and efficient development workflows. The repository is available at: `https://github.com/Mohan2347/capstone_seminar`
+
+**Key Directory Overview**:
+- `/app`: Contains the Next.js 15 App Router pages (Dashboard, Profiles, Listings).
+- `/components`: A library of reusable UI components (Charts, Modals, Cards) built with React and Tailwind CSS.
+- `/lib`: Centralized utility functions, including the Prisma client, Clerk authentication wrappers, and Blockchain hashing logic.
+- `/prisma`: Defines the PostgreSQL schema and manages database migrations.
+- `/ai-service`: A standalone Python FastAPI microservice dedicated to BERT embedding generation and the SmartMatch-AI reinforcement learning logic.
+- `/services`: Houses the business logic for recommendation orchestration and data processing.
+
+### 11.2 SMARTMATCH-AI IMPLEMENTATION (CORE ALGORITHM)
+The core intelligence of the platform is implemented as a Python-based microservice to handle the high computational demands of transformer models.
+
+**Snippet: BERT Embedding Generation**:
+```python
+from sentence_transformers import SentenceTransformer
+
+# Load pre-trained BERT model for semantic similarity
+model = SentenceTransformer('all-MiniLM-L6-v2')
+
+def get_embeddings(text_content):
+    # Generates a 384-dimensional vector (optimized for speed)
+    embedding = model.encode(text_content)
+    return embedding.tolist()
+```
+
+**Snippet: Hybrid Weight Calculation (Next.js/TypeScript)**:
+```typescript
+export function computeHybridScore(contentScore: number, collabScore: number, alpha: number): number {
+  // Alpha is the adaptive weight updated via Reinforcement Learning
+  const finalScore = (alpha * contentScore) + ((1 - alpha) * collabScore);
+  return Number(finalScore.toFixed(4));
+}
+```
+
+### 11.3 SYSTEM SNAPSHOTS DESCRIPTION
+The InternAI Compass user interface is designed for clarity, data-density, and accessibility.
+
+1.  **The Student Discovery Hub**: A clean, cards-based layout showing internships with prominent "Match Scores." Each card features the company logo, a brief role summary, and the blockchain "Verified" badge.
+2.  **Match Reasoning Modal**: An overlay that appears when a student clicks on a score. It uses data visualization (Progress bars and Tags) to show the specific alignment between the student's resume and the job's requirements.
+3.  **Admin Cohort Dashboard**: A high-level overview featuring heatmaps of skill demand and line graphs showing placement rates over the academic semester.
+4.  **Skill-Gap Radar Chart**: A professional visualization tool on the student profile page that compares the user's current skills against the "ideal profile" for their dream career path.
+
+---
+
+## CHAPTER 12: BIBLIOGRAPHY
+
+1.  M. Kumar, A. Raj, and S. Kumar, "Career Counselling Recommendation System," Preprints, 2024.
+2.  Z. Lan, "Design of Intelligent Recommendation System for Graduate Employment Based on Artificial Intelligence," Proc. EASCT, 2023.
+3.  B. Berlikozha et al., "Intelligent Career Path Recommendations Leveraging Blockchain and Machine Learning," IEEE, 2025.
+4.  C. Yang and L. Dong, "Intelligent Talent Recommendation Algorithm for College Students," Journal of Electrical Systems, 2024.
+5.  N. Dobbins, A. R. Hurson, and S. A. Sarvestani, "Personalizing Student Graduation Paths Using Expressed Student Interests," Proc. COMPSAC, 2023.
+6.  G. Rajaraman et al., "Pathfinder–Career Guidance using Artificial Intelligence," IJARSCT, 2024.
+7.  M. Sarkar and N. Kumar, "Recommendation engine and system," Patent, 2019.
+8.  A. M. et al., "AI-Enhanced Career Guidance System for Personalized Career Pathways," 2024.
+9.  W. Liu, J. Niu, and H. Zhao, "Framework Design of Intelligent Career Recommendation System for Undergraduates," Proc. IEIR, 2022.
+10. A. M'Baya et al., "Ontology based multi criteria recommendation system to guide internship assignment process," 2016.
+11. P. K. Goel et al., "CareerQuest," Advances in Computational Intelligence and Robotics, 2025.
+12. D. Dhamayanthi et al., "Career Path Recommender Using Quantum Machine Learning," 2024.
+13. S. Raja and M. Priya, "Optimizing Career Pathways: A Deep Learning-Based Framework," IEEE, 2025.
+14. H. Mydyti and A. Ware, "Integrating Intelligent Web Scraping Techniques in Internship Management," AETIC, 2025.
+15. D. C. Nguyen et al., "ITCareerBot: A Personalized Career Counselling Chatbot," Lecture Notes in Networks and Systems, 2022.
+16. Y. Zhou and S. Yu, "Research on the Design of an AI Career Path Recommendation System," AITR, 2024.
+17. W. Xie et al., "Career path recommendation engine," Patent, 2019.
+18. A. H. Jaber, "The method of building an intelligent system of recommendations," Optiko-elektronnì, 2023.
+19. K. K. Babu, "AI Based Personalized Recommendation of Career Guidance for Students," IJIRIS, 2024.
+20. V. Ramesh et al., "SavvyAI: AI Enhanced Personalized Career Guidance System," IEEE, 2025.
+21. U.S. Patent 11,295,251 B2, "System and method for matching a business opportunity with a resource."
+22. U.S. Patent 2022/0351021 A1, "System and method for providing personalized recommendations based on hybrid filtering."
+23. U.S. Patent 11,954,590 B2, "System and method for predicting job transitions using a professional networking graph."
+24. U.S. Patent 2018/0253695 A1, "Determining similarity between job postings using semantic analysis."

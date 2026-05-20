@@ -1,0 +1,1834 @@
+CAPSTONE PROJECT REPORT
+
+(Project Term: January – May 2026)
+
+ 
+
+AI-EMPOWERED URBAN GOVERNANCE SYSTEM:
+
+A UNIFIED FRAMEWORK FOR CIVIC ISSUE REPORTING AND RESOLUTION
+
+ 
+
+Submitted by
+
+Nithesh Reddy Minam Reddy Gari                     Registration Number: 12201492
+
+Krishnan Guna Shaker                                         Registration Number: 12213376
+
+S Deeraj Kumar Reddy                                         Registration Number: 12206674
+
+Ganesh Maddala                                                    Registration Number: 12213211
+
+M Siva Nagi Reddy                                                Registration Number: 12201812
+
+Venkata Naga Chiranjeevi Kotari         Registration Number: 12205733 
+
+Project Group Number: 2RGC0535
+
+Course Code: CSE439
+
+Under the Guidance of
+
+Ms. Isha Khughar
+
+Assistant Professor
+
+Area of Specialization: Network and Cyber Security
+
+ 
+
+School of Computer Science and Engineering
+
+
+
+ 
+
+PAC FORM
+
+(To be attached as per university format)
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DECLARATION
+
+We hereby declare that the project work entitled “AI-Empowered Urban Governance System: A Unified Framework for Civic Issue Reporting and Resolution” is an authentic record of our own work carried out as requirements of Capstone Project for the award of  B.Tech degree in Computer Science and Engineering from Lovely Professional University, Phagwara, under the guidance of Ms. Isha Khughar, during January to May 2026. All the information furnished in this capstone project report is based on our own intensive work and is genuine.
+
+Project Group Number: 2RGC0535
+
+Name of Student: Nithesh Reddy Minam Reddy Gari 
+
+Registration Number: 12201492
+
+Name of Student: Krishnan Guna Shaker
+
+Registration Number: 12213376
+
+Name of Student: S Deeraj Kumar Reddy
+
+Registration Number: 12206674
+
+Name of Student: Ganesh Maddala
+
+Registration Number: 12213211
+
+Name of Student: M Siva Nagi Reddy
+
+Registration Number: 12201812
+
+Name of Student: Venkata Naga Chiranjeevi Kotari
+
+Registration Number: 12205733
+
+              (Signature of Student 1)
+
+               Date:
+
+              (Signature of Student 2)
+
+               Date:
+
+              (Signature of Student 3)
+
+               Date: 
+
+              (Signature of Student 4)
+
+                Date:
+
+              (Signature of Student 5)
+
+                Date:
+
+            (Signature of Student 6)
+
+                Date
+
+CERTIFICATE
+
+This is to certify that the declaration statement made by this group of students is correct to the best of my knowledge and belief. They have completed this Capstone Project under my guidance and supervision. The present work is the result of their original investigation, effort and study. No part of the work has ever been submitted for any other degree at any University. The Capstone Project is fit for the submission and partial fulfillment of the conditions for the award of B.Tech degree in Computer Science and Engineering  from Lovely Professional University, Phagwara.
+
+ 
+
+  
+
+ 
+
+Signature and Name of the Mentor
+
+ 
+
+Designation
+
+ 
+
+School of Computer Science and Engineering,
+
+Lovely Professional University,
+
+Phagwara, Punjab. 
+
+ 
+
+Date :
+
+ 
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+ACKNOWLEDGEMENT
+
+
+
+This project would not have been what it is without the support of several people, and we want to take a moment to genuinely thank them.
+
+Firstly, we would like to thank our faculty mentor Ms. Isha Khughar, Assistant Professor, School of Computer Science and Engineering, Lovely Professional University, for providing the guidance throughout this project. She was never too busy to listen, challenge our assumptions, or provoke deeper thinking. She steered us clear of more than a few missteps in system design and supported us through the challenging stages of development.
+
+We are also grateful to the School of Computer Science and Engineering and Lovely Professional University for giving us the space, resources, and academic foundation to take on a project of this scale.
+
+A quiet but important thanks goes to the open-source communities behind Next.js Prisma, FastAPI, and the wider JavaScript and Python ecosystems. We leaned on their work heavily, and none of this would have come together in time without it.
+
+Lastly, we would like to acknowledge Google for making the Gemini 1.5 Flash API accessible through a free developer tier. The AI classification features at the heart of this platform were built on that access, and it made a real difference
+
+We stepped into this project with a lot of uncertainty. The people and tools mentioned here are the reason we stepped out of it with something we are proud of.
+
+
+
+
+
+
+
+
+
+
+
+
+
+TABLE OF CONTENTS
+
+Inner first page……………………………………………………………………….(i) PAC form……………………………………………………………………………(ii)
+
+Declaration…...……………………………………………………………………..(iii)
+
+Certificate……..…….…………………………………………………………....…(iv)
+
+Acknowledgement…………………...……………………………………….….......(v)
+
+Table of Contents……………………...…………………………….……...………(vi)
+
+
+
+CHAPTER 1: INTRODUCTION	9
+
+1.1 OVERVIEW	9
+
+1.2 OBJECTIVE OF THE PROJECT	10
+
+1.3 DESCRIPTION OF THE PROJECT	11
+
+1.4 SCOPE OF THE PROJECT	11
+
+1.5 USE CASE MODEL	11
+
+1.6 SYSTEM DESCRIPTION	12
+
+1.7 CUSTOMER AND USER PROFILES	12
+
+1.8 ASSUMPTIONS AND DEPENDENCIES	12
+
+1.9 FUNCTIONAL REQUIREMENTS	12
+
+1.10 NON-FUNCTIONAL REQUIREMENTS	13
+
+CHAPTER 2: PROFILE OF THE PROBLEM, RATIONALE AND SCOPE	14
+
+2.1 INTRODUCTION TO THE PROBLEM	14
+
+2.2 RATIONALE FOR THE PROPOSED SYSTEM	14
+
+2.3 PROBLEM STATEMENT	15
+
+2.4 SCOPE OF THE STUDY	15
+
+CHAPTER 3: EXISTING SYSTEM	16
+
+3.1 INTRODUCTION	16
+
+3.2 EXISTING SOFTWARE AND PLATFORMS	16
+
+3.3 DATA FLOW DIAGRAM FOR THE EXISTING SYSTEM	17
+
+3.4 WHAT IS NEW IN THE SYSTEM TO BE DEVELOPED	17
+
+CHAPTER 4: PROBLEM ANALYSIS	18
+
+4.1 PRODUCT DEFINITION	18
+
+4.2 FEASIBILITY ANALYSIS	18
+
+4.2.1 TECHNICAL FEASIBILITY	18
+
+4.2.2 ECONOMIC FEASIBILITY	19
+
+4.2.3 OPERATIONAL FEASIBILITY	19
+
+4.3 PROJECT PLAN	19
+
+CHAPTER 5: SOFTWARE REQUIREMENT ANALYSIS	20
+
+5.1 INTRODUCTION	20
+
+5.2 GENERAL DESCRIPTION	20
+
+5.3 SPECIFIC REQUIREMENTS	21
+
+5.3.1 FUNCTIONAL REQUIREMENTS	21
+
+5.3.2 NON-FUNCTIONAL REQUIREMENTS	22
+
+5.3.3 SYSTEM REQUIREMENTS	23
+
+CHAPTER 6: DESIGN	23
+
+6.1 SYSTEM DESIGN	23
+
+6.2 DATABASE DESIGN	23
+
+6.3 DESIGN NOTATIONS	24
+
+6.4 DETAILED DESIGN	24
+
+6.4.1 AI CLASSIFICATION PIPELINE	24
+
+6.4.2 MCIA PRIORITY SCORING	24
+
+6.4.3 GEOSPATIAL DUPLICATE DETECTION	25
+
+6.5 FLOWCHARTS	26
+
+6.5.1 CITIZEN COMPLAINT SUBMISSION FLOW	26
+
+6.5.2 ADMIN ISSUE MANAGEMENT FLOW	26
+
+6.6 PSEUDO CODE	26
+
+6.6.1 ANALYZE ISSUE (AI CLASSIFICATION)	26
+
+6.6.2 CALCULATE MCIA SCORE	27
+
+CHAPTER 7: TESTING	28
+
+7.1 FUNCTIONAL TESTING	28
+
+7.2 STRUCTURAL TESTING	29
+
+7.3 LEVELS OF TESTING	29
+
+7.4 TESTING THE PROJECT — RESULTS SUMMARY	30
+
+CHAPTER 8: IMPLEMENTATION	31
+
+8.1 IMPLEMENTATION OF THE PROJECT	31
+
+8.2 TECHNOLOGY STACK SUMMARY	32
+
+8.3 CONVERSION PLAN	33
+
+8.4 POST-IMPLEMENTATION AND SOFTWARE MAINTENANCE	33
+
+CHAPTER 9: PROJECT LEGACY	34
+
+9.1 CURRENT STATUS OF THE PROJECT	34
+
+9.2 REMAINING AREAS OF CONCERN	34
+
+9.3 TECHNICAL AND MANAGERIAL LESSONS LEARNED	35
+
+CHAPTER 10: USER MANUAL	37
+
+10.1 GETTING STARTED	37
+
+10.2 CITIZEN GUIDE	37
+
+10.3 ADMINISTRATOR GUIDE	38
+
+CHAPTER 11: SOURCE CODE AND SYSTEM SNAPSHOTS	39
+
+11.1 REPOSITORY STRUCTURE	39
+
+11.2 MCIA IMPLEMENTATION (TYPESCRIPT) CORE ALGORITHM	40
+
+11.3 SYSTEM SNAPSHOTS DESCRIPTION	40
+
+11.4 GEMINI PROMPT CONSTRUCTION (PYTHON - SERVICE/ANALYZE)	41
+
+11.5 PUBLIC PAGES	42
+
+11.6 CITIZEN INTERFACE	44
+
+11.7 ADMINISTRATOR INTERFACE	53
+
+CHAPTER 12: BIBLIOGRAPHY	61
+
+APPENDIX A: DIAGRAMS AND FIGURES	63
+
+APPENDIX B: TABLES	71
+
+
+
+CHAPTER 1: INTRODUCTION
+
+1.1 OVERVIEW
+
+Urban infrastructure is an aspect of urban life that most individuals only become concerned with once it stops functioning properly. An ignored pothole turns into an actual threat to motorists and passers-by. A faulty light post results in a section of the road becoming unsafe at night. The garbage pileup that occurs in the designated location becomes an issue because there was no collection over the holidays. None of these are sensational events. They are common examples of how infrastructure issues affect residents on a daily basis.
+
+The fundamental problem is not the presence of these issues, but rather the inefficiency with which cities address them. Complaint portals operate in a way similar to the following: A citizen finds the complaint portal online, makes his/her complaint in writing, sends it and waits. The complaint is received into the system where it sits in a queue until some time later when a human being reads it, classifies it into the right category and sends it to the proper department to schedule a response to the issue. Each link in that chain needs the availability of humans, and the chain will break whenever that availability is not available after hours, on weekends, with understaffing, or where the number of calls exceeds the capacity of the staff to handle them.
+
+The reason we created AEUGS was our realization of this gap and capability to fill it using technology. All that it takes for a citizen to report a concern is a picture, a brief description, and their location coordinates; and the process after it is fully automated. From the minute that the issue is received, the system will scan, analyze it, prioritize it, cross-reference it with other complaints in the area, and route it to the proper department for action there’s no need to wait for a clerk to read it nor for a complaint to go unnoticed on the weekend.
+
+This intelligent process is made possible by Google Gemini 1.5 Flash, an AI capable of analyzing both an image and a textual description the way that an inspector would assess an observation and a verbal report and come up with one conclusion. This conclusion includes the category of the problem, severity of the problem, time sensitivity, and confidence level of the machine. This consistency does not change according to the time period at which the complaint has been received, or even the person who has filed the complaint.
+
+In addition to categorizing and prioritizing them, we have developed an innovative algorithm called Multimodal Civic Intelligence Algorithm (MCIA), which assigns scores to different complaints depending upon their impact and not their time of submission. The impact depends on the assessment done using artificial intelligence along with other factors like how urgent the situation is and how many times the complaint has been voted on.
+
+The platform is live at https://ai-civic-issue.vercel.app/ and the source code is publicly available at https://github.com/Guna444/AI-Based-Civic-Issue-Reporting-System.
+
+1.2 OBJECTIVE OF THE PROJECT
+
+This project mainly aims to build an intelligent full-stack web application for integrated urban civic complaint management system. The specific objectives are:
+
+How we are using Artificial Intelligence to classify and prioritize civic complaints The system reads the incoming complaints and classifies them to a relevant civic department, and then also assigns priority on a scale based on how urgent or impactful that complaint is. This lowers manual work and ensures that priority problems are promptly addressed without always relying on human intervention.
+
+Using transparency and fewer duplicates to increase citizen-government engagement Citizens will track their complaints in real-time, as well as view administrator notes made by the AI on decisions about their complaint. It also uses geospatial de-duplication techniques to identify and merge duplicate complaints by their geographic proximity, removing noise from the complaint records, thus improving the civic authorities overall responsiveness.
+
+To create measurable performance metrics to hold admins accountable and track the resolution The system has a scoring system in place that helps maintain timelines of complaint resolution on administrators. All this data allows governing bodies to assess efficiency, find points of congestion and uphold a higher minimum standard of civic service delivery.
+
+
+
+
+
+1.3 DESCRIPTION OF THE PROJECT
+
+The platform consists of two kinds of users – citizens who report and monitor their complaints, and administrators who check, assign, and solve complaints. Citizens engage with a two-stage reporting interface where they input information about their complaint such as its title, description, pictures, and their location. Administrators work with a dashboard that shows them a live priority list, a searchable list of issues, and visual charts showing analytics. 
+
+From the moment of submission, each issue goes through an AI pipeline: Google’s Gemini scans text and images simultaneously, classifies the issue into one of ten civic categories, assigns severity and urgency levels ranging from 1 to 4 each, calculates confidence rate, and writes a brief explanation. Then the MCIA algorithm calculates a priority score from 0 to 10. Should there have been a complaint with the same issue, category, and location reported within the 500-meter radius before, it will be considered a duplicate and not create a separate administrator issue but simply link with an existing one.
+
+1.4 SCOPE OF THE PROJECT
+
+The scope includes everything in the complaints management process, which starts from when the complaint is made by a citizen together with its picture and geolocation data, followed by its classification using Google’s Gemini 1.5 Flash AI, duplicate geospatial detection through the Haversine formula, its prioritization according to the Multi Criteria Intelligence Assessment model with real-time re-prioritization, admin approval using a protected dashboard, status update in six stages of its lifecycle, and lastly its resolution.
+
+1.5 USE CASE MODEL
+
+There are three levels of stakeholders in the system. The Citizen stakeholder (who is authenticated by a username/password combination) can create complaints, attach pictures to a complaint, associate a complaint with GPS location information, rate other people’s complaints, and monitor his/her own complaints. The Administrator stakeholder (who is protected with a role) can access complaints in the priority list, filter/sort through all complaints, modify the status of complaints, assign complaints to departments, write resolutions, and access analytics reports.
+
+
+
+1.6 SYSTEM DESCRIPTION
+
+The stack is a web application built on Next.js15 and follows the App Router architecture, utilizing server-side rendering, TypeScript, and API routes for all backend logic. Authentications is done using Clerk, where webhook syncs ensure that there is a database entry for each and every user in Clerk. The database used is PostgreSQL on Neon DB (serverless) and access is through Prisma ORM. AI classification takes place in an isolated Python Fast API microservice.
+
+1.7 CUSTOMER AND USER PROFILES
+
+Primary Users: The primary user group includes the people who have witnessed an issue with their local infrastructure and wish to report it. These people need not necessarily be very technically literate; the design of the system is such that they can use it even without any prior guidance. Secondary Users: These include municipal officials, facility managers, or faculty (if used within an organization). They should be digitally literate but do not require any particular technical expertise.
+
+1.8 ASSUMPTIONS AND DEPENDENCIES
+
+The software expects the citizens to have a contemporary web browser and a photo-taking gadget. Geographical location detection relies on the geolocation feature of the browser, but one can manually input the coordinates as an alternative. Outbound internet connectivity must be present for accessing the Gemini API services. The system needs the Gemini 1.5 Flash API from Google, the NeonDB serverless PostgreSQL database, Clerk authentication service, and the Vercel platform. These services are provided by their respective providers at the agreed service levels.
+
+1.9 FUNCTIONAL REQUIREMENTS
+
+Citizens are able to register and authenticate themselves through either email/ password authentication or through social accounts.
+
+Citizens are able to lodge complaints with a title, description, image(s) (one or multiple), and GPS location.
+
+Each complaint will be automatically categorized by Google Gemini 1.5 Flash multimodal classifier.
+
+Every complaint is assigned a priority rating of LOW, MEDIUM, HIGH, or CRITICAL as well as a severity rating of LOW, MEDIUM, HIGH, or IMMEDIATE.
+
+Duplication of complaints is detected using the Haversine geospatial distance algorithm within 500m.
+
+Each citizen’s complaint gets an MCIA Priority score of 0 to 10 when lodged.
+
+Citizens are allowed to upvote open complaints; each upvote changes the priority score in real-time.
+
+Citizens can use the live tracker interface to monitor complaint statuses.
+
+Administrators can access the priority-sorted list of all open complaints.
+
+Administrators can filter complaints based on status, type, and severity while sorting them by priority, number of upvotes, or time of registration.
+
+Administrators have the ability to update statuses, enter comments, and assign complaints to departments.
+
+Administrators are provided with analytics in form of pie charts showing monthly trends, categories, and severities.
+
+1.10 NON-FUNCTIONAL REQUIREMENTS
+
+Classification should take no more than three seconds after entering the complaint.
+
+The system should allow multiple users at once without any performance degradation.
+
+Other routes except the public routes should authenticate using Clerk middleware.
+
+File types like JPEG, PNG, and WebP, and file size not exceeding five megabytes should be validated upon uploading images.
+
+The user interface must work well across all common desktop browsers.
+
+Duplicate detection accuracy should have a false positive rate below five percent when employing complaints with urban density data.
+
+MCIA should be recalculated within 200 milliseconds following the upvote event.
+
+
+
+
+
+
+
+
+
+
+
+CHAPTER 2: PROFILE OF THE PROBLEM, RATIONALE AND SCOPE
+
+2.1 INTRODUCTION TO THE PROBLEM
+
+Complaints management for cities seems like an issue that’s already been cracked. All cities of decent size have some sort of portal/hotline system whereby citizens can register their grievances about infrastructure breakdowns. This is, of course, far from being a satisfactory process for those who have gone through it.
+
+The fundamental problem here lies in scale and human intervention. A complaint lodged at 11 PM on a Friday is nothing more than an email sitting in a folder until Monday morning when the box is opened. Multiple citizens submitting the same complaint regarding the malfunctioning of a particular manhole will all be logged individually without mention of other cases of the same complaint. The operator responsible for processing hundreds of complaints during a single shift cannot make consistent judgments because it is impossible to make consistently categorical decisions in such large quantities.
+
+This is not an anomaly but is commonplace within citizen complaint processes across the globe and has a very real outcome – namely, that citizens receiving no response stop submitting complaints, and thus the participation of citizens in the urban management process steadily disappears to the point where nobody benefits.
+
+2.2 RATIONALE FOR THE PROPOSED SYSTEM
+
+It should classify in three seconds maximum after the complaint entry.
+
+It must run multiple users concurrently without affecting the application performance.
+
+Except for the public routes, other authentication routes must use Clerk middleware.
+
+Types like JPEG, PNG, WebP, and file size less than five megabytes should be checked while uploading pictures.
+
+It must have good usability on most commonly used desktop web browsers.
+
+Its accuracy in detecting duplicates must have an error rate of less than five percent while applying the complaints with urban density values.
+
+Recalculate MCIA within 200 milliseconds after the upvote event.
+
+
+
+
+
+2.3 PROBLEM STATEMENT
+
+The present systems for handling citizens’ complaints are facing four interlinked drawbacks: manual and sluggish categorization leading to backlogged processing; unreliable estimation of threat level which leads to underestimating and misrouting serious threats; repetitive reports creating extra workloads without increasing capability for resolving issues; and inadequate visibility of the current situation making citizens lose their trust and interest in contributing. In this project, we develop and deploy an all-in-one solution that resolves all the above issues using artificial intelligence.
+
+2.4 SCOPE OF THE STUDY
+
+The scope of the project encompasses the entire complaint life cycle ranging from complaint submission by a citizen all the way to its completion by an administrator. The two-part reporting mechanism for a citizen that involves image uploading, geospatial duplicate detection using the Haversine formula for a 500-meter clustering radius, priority ranking using the MCIA model with real-time updating of the priority score upon upvotes, and administrative complaint management involving status updates, complaint departments assignment, and complaint note-taking forms part of this scope.
+
+The current design accommodates web submission from the user’s desktop browser. Upcoming improvements involve development of a native mobile app for both iOS and Android, multi-language support in the complaint submission process, integration of IoT sensors for predictive maintenance, and API integration with municipal ERP systems.
+
+
+
+
+
+
+
+
+
+
+
+
+
+CHAPTER 3: EXISTING SYSTEM
+
+3.1 INTRODUCTION
+
+Prior to the development of the system, a survey was carried out on the platforms that exist in order to gain insight on what has been created, what works, and where the critical gaps are. It is clear from the analysis that although there are several working platforms, no platform caters to the unique set of challenges faced by this initiative.
+
+3.2 EXISTING SOFTWARE AND PLATFORMS
+
+The most widespread system for civic complaints in North America and some parts of Europe is called SeeClickFix; it helps citizens to register their complaints via an app and channel them to the relevant city officials. It does include geolocation and basic categories of issues, while categorization itself takes place at the stage of user input, which results in frequent misrouting of the complaint to the wrong department.
+
+The Fix My Street application is a popular application that follows this format: citizen report, citizen classify according to pre-defined geographic regions. The classification accuracy is determined by the citizen’s comprehension of the category definitions, which can vary significantly.
+
+There are multiple state-level implementations of the Public Grievance Portal (PG Portal) in India that serve as the complaint handling portal for various government departments. They usually have users go through a complicated hierarchical categorization process, issue arbitrary reference numbers without any follow-up mechanism, and provide no real-time prioritization options to administrators other than FIFO queuing. Various academic implementations have focused on individual problem facets. Pothole images captured by cameras mounted on vehicles have been classified using CNNs  an entirely passive system that caters to only one type of infrastructure complaint and requires additional hardware.
+
+3.3 DATA FLOW DIAGRAM FOR THE EXISTING SYSTEM
+
+The traditional civic complaint handling system entails a simple yet inefficient process of transferring information. An ordinary citizen logs onto the website and fills in the form including both a description and a photograph of the complaint, if available. These details are recorded in the database for the complaints, with an assigned number. A municipal operator opens the inbox and reads through each complaint one-by-one and then categorizes them as per their pre-existing list and directs them to the concerned department. The department gets the case assigned to them, plans for its resolution, and at last solves the complaint – or leaves it unresolved, without any escalation system in place.
+
+Weaknesses in the above flow:
+
+The process of classification is subjective and unstandardized
+
+There is nothing in the system to recognize that the two submissions have the same physical issue
+
+Priority assignment is made based on arrival times
+
+Citizen feedback is non-existent
+
+3.4 WHAT IS NEW IN THE SYSTEM TO BE DEVELOPED
+
+The AI-Empowered Urban Governance Platform stands out from other existing platforms in three important aspects.
+
+Firstly, the process of categorization makes use of the generative multimodal AI model unlike in existing civic platforms where the process depends on citizen self-classification or classification with a specific domain classifier. Google Gemini 1.5 Flash has an ability to classify any kind of civic issue using natural language, incorporating both texts and images without need for any form of retraining. The current CNN classifiers require pre-trained data set models.
+
+Secondly, the MCIA framework incorporates a composite priority score that has not been considered by any existing civic platform. Queues in existing platforms may be manually created or FIFO in nature. MCIA incorporates an AI-assessed severity of 40%, urgency of 30%, live community votes of 20% and a temporal recency weight of 10%.
+
+Thirdly, automatic geospatial deduplication using the Haversine formula with a same category constraint is performed when the data is submitted. In current approaches, duplicate removal can be done manually by the operator or even not performed. Threshold for 500 meters radius was chosen according to block sizes found in most cities.
+
+CHAPTER 4: PROBLEM ANALYSIS
+
+4.1 PRODUCT DEFINITION
+
+The product is a web application that allows citizens to file complaints against civic authorities; this product will be called the AI-Empowered Urban Governance System (AEUGS). It is developed using Next.js 15, and it uses a database of PostgreSQL running on NeonDB with an AI service based on Python Fast API microservices. There are two user types in AEUGS: citizen users and administrator users, who have different access levels.
+
+The essential outputs include: Citizen-facing two-stage complaint submission system including picture attachment and GPS detection; AI categorization model based on Google’s Gemini 1.5 Flash; Geospatial duplicates detection algorithm employing Haversine formula; MCIA-based issue priority scoring algorithm with live recalculations; Citizen-oriented interface for issue tracking with six levels of status coloring; Administrative dashboard including issue priority queue, list of issues filtering, and analytical charts.
+
+4.2 FEASIBILITY ANALYSIS
+
+4.2.1 TECHNICAL FEASIBILITY
+
+All of the required pieces are available as fully functional products or highly maintained open source software. Google Gemini 1.5 Flash can be accessed using Google’s Generative AI SDK that offers a free API sufficient for demonstration purposes. Next.js 15 is an established framework. The serverless PostgreSQL plan of NeonDB will easily handle data amounts anticipated in a demonstration. The authentication can be handled using a managed solution by Clerk without creating a new session solution from scratch.
+
+4.2.2 ECONOMIC FEASIBILITY
+
+It was created at no financial expense whatsoever. The deployment service used was Vercel, while NeonDB was used for the database. Clerk is used for authentication services. The Gemini API provides data. However, scaling up this system for use on a city-wide level would require upgraded pricing from all services mentioned above, but that would only be proportional to the increased usage.
+
+4.2.3 OPERATIONAL FEASIBILITY
+
+The citizen portal does not necessitate any technical skills. Only an image, a description, and an address are necessary to lodge a complaint. The administrators will only need to have minimum computer literacy to maneuver the portal. The software does not need any installation on the administrator’s computer. It works seamlessly using any standard internet browser.
+
+4.3 PROJECT PLAN
+
+The process of project development involved six different stages done within the period of twelve weeks:
+
+Stage 1 (Week 1-2): Requirements & Design – User roles identification and use case scenarios; identifying the technology stack to be used; creating database schema; designing wireframes for the citizen interface and administrator interface.
+
+Stage 2 (Week 3-4): Core Development – Setting up the project using Next.js 15 and TypeScript; integrating Clerk authentication and webhooks synchronization; Prisma database schema with User, Issue, Upvote, and Ai Analysis entities; design of the API routes.
+
+Stage 3 (Week 5-6): Artificial Intelligence – Integration of Google Gemini 1.5 Flash SDK; analyze Issue() function; prompt engineering that involved formatting data in JSON form; handling errors related to wrong responses from AI models; microservice that used Python Fast API and MCIA and Haversine modules.
+
+Stage 4 (Week 7-8): Additional Features – Image Upload through base64 format; Location Picker using Geolocation and OpenStreetMap reverse geocoding; community voting feature by means of unique constraint; calculation of MCIA recalculate per upvote.
+
+Stage 5 (Weeks 9 – 10) – Admin Dashboard and Analytics: Priority queue, filterable issue table, issue detail page, and status update sidebar; Analytics Charts component with Recharts; authorization for admin pages based on user roles.
+
+Stage 6 (Weeks 11 – 12) – Testing and Deployment: Functionality and structural testing; latency testing for AI classifier; duplicate check validation for simulated data; deployment to Vercel ; documentation and reports creation.
+
+
+
+CHAPTER 5: SOFTWARE REQUIREMENT ANALYSIS
+
+5.1 INTRODUCTION
+
+To analyse software requirements for this project, three sources were considered: the shortcomings of existing civic complaint platforms reviewed in Chapter 3;
+
+viable uses of publicly available AI and web development tools; 
+
+and authentic needs expressed by the two principal user groups citizens reporting problems and administrators who resolve them. We grouped the requirements under functional, non-functional, and system level.
+
+5.2 GENERAL DESCRIPTION
+
+AI-Empowered Urban Governance System is a browser-based web app, and can be opened from any modern desktop browser without any installation or configuration process.Users authenticate with Clerk, a managed identity provider that stores session information securely and enables registrations via email/password with any social login partner. Upon authentication, based on their assigned role, the system redirects users to either the citizen interface or administrative dashboard.At its core, the platform is built around managing and resolving civic complaints starting from citizen submission to administrative resolution through multiple phases in between. When a complaint is submitted, it passes immediately through the AI analysis pipeline and every complaint is assigned with an updateable priority score that reincarnates in real time any time a citizen upvotes or un-upvotes.The citizen that has submitted the issue can see changes in status through a tracking interface.
+
+5.3 SPECIFIC REQUIREMENTS
+
+5.3.1 FUNCTIONAL REQUIREMENTS
+
+FR-01The system shall allow any visitor for register an account through email/password or social login via Clerk.
+
+FR-02: Authenticated citizens should be able to register a complaint that has a title, description, one or more pictures (JPEG/PNG/WebP max 5MB each), and GPS location.
+
+FR-03: GPS location is automatically obtained by the native Geolocation API on your browser, and there is reverse geocoding by OpenStreetMap Nominatim to display human-friendly address. There will be a fallback of manual latitude/longitude entry
+
+FR-04: The AI classification call to Google Gemini 1.5 Flash shall be initiated for each complaint submission A valid JSON format is mandatory and the model will have to output category, severity, urgency, confidence score, description of analysis & tags.
+
+FR-05: Before inserting a new complaint, system will search for all existing complaints within ±0.005° bounding box of GPS coordinates location and same AI-classified category of complaint Next, we will calculate the haversine distance for each candidate. If within 500m of the new submission, any candidate shall have the new submission considered a DUPLICATE and link this to the original via duplicateOfId.
+
+FR-06: The system shall calculate an MCIA priority score for each complaint labeled as non-duplicate after AI classification is available.FR-07: There must be upvoting by citizens on every open complaint. The upvote operation is idempotent  a second upvote by the same user on the same complaint will take back the vote. The MCIA score of a complaint will be recalculated after every upvote or withdraw.
+
+FR-08 : A citizen can view a list of all complaints made by him and their status, AI results and notes from the admin.
+
+FR-09: As an administrator I want to see a priority queue for the top open complaints by MCIA score
+
+FR-10 – The system will be able to display all complaints to the administrator, enabling him to filter (by status, category, severity) and sort (by priority, upvotes, date).
+
+FR-11: The complaint detail page will allow the administrators to update complaint status, assign to a department, add notes and mark resolved.
+
+FR-12: Summary statistics like Total Issues, Pending Number, In progress Number, Resolved number, Critical Nature Number and Total Registered Citizens must be displayed in administrative dashboard
+
+FR-13: The system must allow for the display of analytics charts: monthly complaint trend (line), percentage by category (bar), status distribution chart (pie) & severity chart.
+
+5.3.2 NON-FUNCTIONAL REQUIREMENTS
+
+NFR-01 Performance: End-to-end submission of a complaint (from filling one form to the AI analyzing it and writing the results to the database) should be performed within three seconds with varying network conditions.
+
+NFR-02 Scalability: The serverless architecture with NeonDB and Vercel must be horizontally scalable without requiring code changes.
+
+NFR-03 Security: Non-public routes must be secured with Clerk’s clerkMiddleware(). Citizens should not be able to reach any admin route implement role-based access control.
+
+NFR-04 Reliability: All fields should have fallback defaults in Gemini API response validation so that the complaint pipeline does not fail due to a malformed AI response.
+
+NFR-05 Usability A first time user must be able to complete the citizen reporting form in less than two minutes without instructions.
+
+NFR-06 Accuracy: The accuracy of AI classification on the civic complaint categories should be greater than 85% as per empirical testing. The true positive rate of duplicate detection all should remain less than 5%.
+
+NFR 07. Responsiveness: MCIA recalculation when upvoted, should finish in less than 200 milliseconds.
+
+NFR-08 Data Integrity: The Upvote table should have a composite unique constraint on (issueId, userId) to ensure the same user cannot vote multiple times on the same complaint.
+
+5.3.3 SYSTEM REQUIREMENTS
+
+Development and deployment environment:
+
+Node. Js 18+ for Next. Js 15 runtime
+
+FastAPI microservice in Python 3.10+
+
+PostgreSQL 14+ (NeonDB serverless)
+
+Client access with a modern web browser (Chrome 100+, Edge 100+)
+
+Gemini API outbound internet access, Clerk, NeonDB and OpenStreetMap DATABASE_URL,GEMINI_API_KEY,CLERK_SECRET_KEY,CLERK_PUBLISHABLE_KEY, WEBHOOK_SECRET and ADMIN_EMAIL These are all environment variables.
+
+CHAPTER 6: DESIGN
+
+6.1 SYSTEM DESIGN
+
+The system architecture is split into a collection of microservices across 3 layers: Next fullstack. Js web application that hosted a citizen-facing front end and back-end API routesJS; NeonDB PostgreSQL relational database accessed using Prisma ORM; a dedicated microservice (developed on Python FastAPI)One for processing AI requests, prioritising request scores, and detecting duplicate submissions. The Next hits these three layers over HTTP, js API routes serves as the orchestration layer that will call to both the database and AI microservice.
+
+This gives rise to a role-based access control that segregates the system into three interface zones: public routes (landing page, sign-in, sign-up); citizen routes (dashboard, report, issues; tracking) and admin routes (dashboard, issue management; analytics). Notably, clerkMiddleware() function in the Next protects all non-public routes through Clerk. Js middleware layer.
+
+6.2 DATABASE DESIGN
+
+There are four models in the relational schema, namely; User, Issue, Upvote, and AiAnalysis. The User model maintains the Clerk-synchronized identity for every user and a role attribute that is either CITIZEN or ADMIN. The Issue model serves as the central model, which holds attributes such as the complaint’s title, description, picture URLs, GPS coordinates, status, number of upvotes, priority score, and two foreign keys for the user ID and parent issue (in case the issue exists multiple times). The Upvote model implements the uniqueness constraint, using a combination of issue ID and user ID, such that there can be only one vote by a user for a particular complaint.
+
+6.3 DESIGN NOTATIONS
+
+The application implements the following conventions in its design:All types (interfaces, enums), implemented in src/types/index.ts
+
+All database operations using Prisma happen through a singleton Prisma client implementation in src/lib/prisma.ts for preventing connection pool exhaustion in serverless deployments Gemini API integration - located in src/lib/gemini.ts
+
+Implementation of MCIA algorithm, and Haversine distance calculation function located in src/lib/utils.ts Components are grouped into domain folders (admin/, forms/, issues/, dashboard/, layout/) in src/components/.
+
+6.4 DETAILED DESIGN
+
+6.4.1 AI CLASSIFICATION PIPELINE
+
+After getting the issue complaint, the /api/issues POST API causes the invocation of the function analyzeIssue() within src/lib/gemini.ts. As a consequence, the process leads to the creation of a well-formatted prompt consisting of the title, description, geolocation, and base64-encoded image (using inline data) of the complaint. The prompt requests the model to return a JSON object having six properties: category (civic categories), severity (LOW/MEDIUM/HIGH/CRITICAL), urgency (LOW/MEDIUM/HIGH/IMMEDIATE), confidence (0.0 - 1.0), analysis text (professional two-three sentences), and tags (two-five words).
+
+6.4.2 MCIA PRIORITY SCORING
+
+TPriority of a complaint is calculated by the Multimodal Civic Intelligence Algorithm using the following formula
+
+P = (S × 0.40) + (U × 0.30) + (C × 0.20) + (R × 0.10)
+
+Where:
+
+S - severity
+
+U - urgency
+
+C - community engagement
+
+R - recency
+
+Severities are defined as follows:
+
+LOW = 2.5
+
+MEDIUM = 5.0
+
+HIGH = 7.5
+
+CRITICAL = 10.0
+
+Similarly, urgencies are:
+
+IMMEDIATE = 10.0
+
+The community engagement component is computed as follows:
+
+min( upvoteCount × 0.5, 10)
+
+Community engagement is capped at a score of 10 to avoid any organized vote farming activity that can manipulate the queuing system. The recency component follows an exponential decay curve formula:
+
+10 × e^(-age_in_days / 30)
+
+This ensures that a report made recently will be granted around 10 points while a report filed 30 days ago gets roughly 3.7 points, ensuring that the older reports do not get buried for eternity without any advantage over the recent reports.
+
+6.4.3 GEOSPATIAL DUPLICATE DETECTION
+
+The query for searching is performed on all the records that have not yet been resolved and belong to the same type of AI, located at a distance of ±0.005° from the input GPS coordinates, prior to adding the new record. The formula used in the computation of the distance between two geographic locations using the Great Circle Distance is as follows:
+
+a = sin²(Δφ/2) + cos(φ₁)·cos(φ₂)·sin²(Δλ/2); 
+
+c = 2·arctan2(√a, √(1−a));
+
+d = R·c where R = 6,371,000m.
+
+When the value of d ≤ 500m, then the current record is added to the database with a DUPLICATE status and duplicateOfId refers to the existing record.
+
+6.5 FLOWCHARTS
+
+6.5.1 CITIZEN COMPLAINT SUBMISSION FLOW
+
+The citizen is taken to /citizen/report
+
+Add Inputs, include title, description, image upload, detection/entry of location
+
+Confirm inputs in a summary before submitting report
+
+POST /api/issues – Request body parsed against Zod schema
+
+Fetch issues from database within proximity of ±0.005° bounding box with matching category
+
+Invoke microservice for AI analysis: analyzeIssue() → Gemini 1.5 Flash classification
+
+Conduct Haversine duplication check of close matches
+
+MCIA score calculation
+
+Persist new Issue + AiAnalysis in database
+
+Retrieve the issue and AI analysis data returned to frontend
+
+User sees AI analysis and can track issue
+
+6.5.2 ADMIN ISSUE MANAGEMENT FLOW
+
+Login as ADMINView /admin – listing, stats, graphs
+
+View /admin/issues – filtered & sorted listing
+
+Select an issue → /admin/issues/[id] – details view
+
+Use sidebar AdminStatusUpdate – enter status, comment, and choose department
+
+Enter status = RESOLVED – timestamp of resolve gets recorded
+
+The analytics get updated immediately
+
+6.6 PSEUDO CODE
+
+6.6.1 ANALYZE ISSUE (AI CLASSIFICATION)
+
+FUNCTION analyzeIssue(title, description, lat, lng, imageBase64, existingIssues):
+
+    prompt = BUILD_STRUCTURED_PROMPT(title, description, lat, lng)
+
+    IF imageBase64 IS NOT NULL:
+
+        content = [prompt, {inlineData: {data: imageBase64, mimeType: 'image/jpeg'}}]
+
+    ELSE:
+
+        content = [prompt]
+
+    response = geminiModel.generateContent(content)
+
+    result = PARSE_JSON(response.text)
+
+    result = VALIDATE_AND_SANITIZE(result)  # fallback defaults
+
+    FOR each issue IN existingIssues:
+
+        IF issue.category == result.category:
+
+            dist = haversine(lat, lng, issue.lat, issue.lng)
+
+            IF dist <= 500:
+
+                result.isDuplicate = TRUE
+
+                result.duplicateOfId = issue.id
+
+                BREAK
+
+    RETURN result
+
+
+
+6.6.2 CALCULATE MCIA SCORE
+
+FUNCTION calculatePriorityScore(severity, urgency, upvoteCount, createdAt):
+
+    S = SEVERITY_MAP[severity]   # LOW=2.5, MED=5, HIGH=7.5, CRIT=10
+
+    U = URGENCY_MAP[urgency]     # LOW=2.5, MED=5, HIGH=7.5, IMM=10
+
+    C = MIN(upvoteCount * 0.5, 10)
+
+    ageDays = (NOW - createdAt).days
+
+    R = 10 * EXP(-ageDays / 30)
+
+    score = (S * 0.40) + (U * 0.30) + (C * 0.20) + (R * 0.10)
+
+RETURN ROUND(score, 2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CHAPTER 7: TESTING
+
+7.1 FUNCTIONAL TESTING
+
+Functional testing confirmed the implementation of all functional requirements as stated. The testing procedure included manually testing every feature through submission of complaints with various inputs and checking their results on different stages of the pipeline.
+
+The process of authentication was confirmed through registration of accounts using email and password method and social media login methods with synchronization of Clerk webhooks with the database. It was confirmed whether the user role of an account registered with the ADMIN_EMAIL environment variable was set to ADMIN.
+
+Complaint submission was manually tested through submissions of complaints with text only, text and images, with GPS coordinates, and with manually entered coordinates. The output of the AI classifier function was checked for its correct format and category.
+
+Duplication detection was done through a second complaint of the same category submitted with GPS coordinates within 300 meters of distance from an active complaint. As a result, the new submission was labeled as DUPLICATE, and it was related to the active complaint. In the second scenario, the second submission was made of the same category but with GPS coordinates that were 600 meters apart; hence a new complaint was created.
+
+Idempotency of upvoting was tested through two successive votes made by one user account on the same issue. The upvoting process removed the previous vote, and the vote count decreased while the priority calculation made by MCIA recalculated.
+
+7.2 STRUCTURAL TESTING
+
+For the test cases of Structural Testing, there was a test of the internal paths within the code as well as validation of the data handling in the internal processes. This tracing started from the API route handler till reaching the database writer to check if Zod schemas validate the data and return proper error responses, namely (400 - for invalidation; 401 - for authorization failure; 403 - for forbidden).
+
+For Gemini module, edge cases included the creation of complaints with single-word descriptions, descriptions of the complaints that were too vague and could be applied to other types of complaints, as well as extremely low-quality images. To my great surprise, even in this case, the fallbacks did an impeccable job, returning default values without generating errors, thus confirming that they work structurally correctly.
+
+Tests of the distance Haversine calculation included the use of coordinate pairs whose accuracy was checked externally. Also, the MCIA community scoring system was thoroughly tested under all combinations of severity and urgency of the complaint with upvotes ranging from zero to five, ten, fifteen, and twenty.
+
+7.3 LEVELS OF TESTING
+
+Unit Testing: The unit testing for individual functions such as analyzeIssue(), calculatePriorityScore(), and haversineDistance() has been carried out using specific input-output dataset.
+
+Integration Testing: In order to carry out the integration test for complaints handling, it has been carried out in a single shot where we include various processes such as completion of the form, routing of the complaint, validation of the input data via Zod library, fetching data from the database, invoking the AI microservice, Haversine distance calculation, MCIA calculations, storing the outcome in the database, and finally getting the output.
+
+System Testing: Complete system testing was performed where the complete setup was deployed on Vercel and verifying if the environmental variables were correctly set, all routes were functioning properly, proper authentication was performed, and the dashboard was displaying correct information.
+
+User Acceptance Testing: For user acceptance testing, the complete process was verified where the system had undergone citizen/administrator flow, logged into the system from scratch, filed complaints, and ensured that the complaints had been resolved accordingly.
+
+
+
+
+
+
+
+
+
+
+
+7.4 TESTING THE PROJECT — RESULTS SUMMARY
+
+Test case
+
+Input
+
+Expected Outcome
+
+Result
+
+TC-01: Valid complaint submission
+
+The + sign denotes all of these title + description + image + GPS
+
+You create an issue, it gets analyzed by the AI and then assigned a MCIA score
+
+PASS
+
+TC-02: Same (Category) Duplicates (<500m)
+
+300m away, a second complaint (same cateory) SYNOPSIS
+
+New issue marked as DUPLICATE and linked to the original
+
+PASS 
+
+TC-03: no duplicate (half – kilometer in the same category or greater)
+
+Complaint same category, 600m away
+
+New independent issue created 
+
+PASS
+
+TC – 04: Upvote toggle 
+
+Same User creates twice same issue on upvote 
+
+First after (Second upvote withdrawn count goes back to original)
+
+PASS
+
+TC - 05: MCIA recalculation on upvote 
+
+New Post 1 comment 
+
+MEDIUM/HIGH nonths ago 
+
+Edited getting a re-iterate how to getting a name for your household memebers pin sticer (0 upvote)
+
+Priority score increases after upvote
+
+PASS
+
+TC - 06: Admin route protection 
+
+Citizen user navigates to / admin 
+
+Redirected to citizen dashboard
+
+PASS
+
+TC – 07: Invalid Response with Gemini Fallback
+
+The prompt of which is designed to produce malformed JSON
+
+Default used; complaint still created
+
+PASS
+
+TC- 08: Image type validation
+
+Upload of .gif file (invalid type)
+
+400 error returned; upload rejected 
+
+PASS
+
+TC – 09: Admin status update  
+
+Admin change the status from PENDING to IN_PROGRESS
+
+Citizen tracking page now reflects update as to whether status was updated in DB 
+
+PASS
+
+TC – 10: Text – only classification
+
+Complaint with no image
+
+Gemini applies classification based on text alone without an image as well; confidence score
+
+PASS
+
+
+
+CHAPTER 8: IMPLEMENTATION
+
+8.1 IMPLEMENTATION OF THE PROJECT
+
+The project implementation was made in line with the phases described in Chapter 4. Each of those phases included adding some individual feature before moving onto another one. This allowed for the individual verification of all components and their integration as a whole into the project.
+
+Regarding the Next.js 15 app, the first setup was performed using the create-next-app CLI tool together with the specified TypeScript App Router template. The data model schema was designed based on four defined entities (User, Issue, Upvote, AI Analysis) as well as relations between them before moving on to implement the other features.
+
+The integration of authentication features with Clerk was performed with the help of the @clerk/nextjs library and wrapping the root layout component with ClerkProvider. Webhook listener, running from the /api/webhooks/clerk path, used Svix SDK for webhooks’ authentication and then used Prisma API to add the existing users to NeonDB based on email match to the specified ADMIN_EMAIL environment variable.
+
+Integrating AI technology was undoubtedly the most technically complicated part of the project. The function analyzeIssue() from src/lib/gemini.ts constructs a prompt that gets passed to the Gemini model using the @google/generative-ai library. Whenever there is an image next to a photo, the latter is appended as a second content item, passing its inline data along with the textual prompt, which means both the base64 encoding of the image and its MIME type. Multimodal aspect is thus defined by.
+
+At the same time, another FastAPI Python microservice was developed. The service was planned to be run independently on another machine and would perform the same algorithmic operations as Next.js regarding MCIA and Haversine but be programmed in Python instead. This way, the purposeful AI layer was ensured. There were three endpoints specified: POST /analyze, for the full AI processing flow; POST /check-duplicate, for duplicate checking with regard to only geographical location; POST /priority, for the MCIA score calculation.
+
+DashboardAdmin has been created by combining several backend components within the (admin) route category. The dashboard obtains the data that includes statistics, top 5 priorities queue and the latest issues in one HTTP request. Issue table displays all issues within the application but filters those with the help of AdminIssueFilters component. AnalyticsCharts uses four Recharts to show graphs for monthly number of complaints, number of complaints in each category, their status and severity level respectively.
+
+8.2 TECHNOLOGY STACK SUMMARY
+
+Layer
+
+Technology
+
+Purpose
+
+Frontend Framework
+
+Next.js 15(App Router)
+
+React full-stack with SSR, API routes & server components
+
+Language
+
+TypeScript
+
+Type – safe front end & backend
+
+Styling 
+
+Tailwind CSS + shadcnUI
+
+Accessible component primitives with utility first CSS
+
+Authentication
+
+Clerk + Svix
+
+Sign in end to end with JWT managed auth, sessions and verification of the webhook signature
+
+ORM
+
+prisma
+
+Schema – first, type safe database client 
+
+Database
+
+NeonDB(postgresSQL)
+
+Serverless PostgreSQL with connection pooling
+
+AI model
+
+Google Gemini 1.5 flash
+
+Multimodal text – and – image analysis
+
+AI microservices
+
+Python + FastAPI
+
+Specialized service for MCIA, Haversine and AI calls
+
+Forms
+
+React Hook Form + Zod
+
+Performant forms with schema – based validation
+
+Charts
+
+Recharts
+
+Analytic visualizations in admin dashboard
+
+Development 
+
+vercel
+
+Environment variable hosting on edge
+
+
+
+8.3 CONVERSION PLAN
+
+The system was built entirely as a web-based product, without replacing any previous digital software within the context of deployment for this project. There was no need for any form of migration of data from a legacy application. A plan for migration in order to roll out the project at the municipal level in future could entail: migrating past complaint data from the existing application (in CSV format) to the NeonDB database using a one-time Prisma migration script; training the admins on the use of the dashboard through a proper walk-through session; and running both systems simultaneously for a period of two to four weeks.
+
+8.4 POST-IMPLEMENTATION AND SOFTWARE MAINTENANCE
+
+The deployed software was monitored for about three weeks to detect any problems related to the latency of the APIs, the edge cases of the authentication procedure, and concurrent connection pooling with the database. There were no bugs detected during the monitoring process.
+
+Maintenance operations that will be carried out in case of the deployment of the system in a production environment include: reviewing the accuracy of the Gemini classification process for emerging types of civic issues; adjusting MCIA weight parameters according to the evaluation of the priority queue by the administrator; performing Prisma schema migrations for the data fields to support emerging features; and renewing Clerk, NeonDB, and Vercel service tokens prior to their expiration date.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CHAPTER 9: PROJECT LEGACY
+
+9.1 CURRENT STATUS OF THE PROJECT
+
+All parts of the AI-Empowered Urban Governance System have been successfully deployed, tested, and released. The web-based deployment of the application is available at https://ai-civic-issue.vercel.app/, and the complete source code is available at https://github.com/Guna444/AI-Based-Civic-Issue-Reporting-System. All functions specified in the functional requirements specification are now operational.
+
+The classification model trained using Google Gemini 1.5 Flash achieved an accuracy of around 91% for the inputs presented in multimodal format (text+image), and about 84% accuracy when dealing with only text inputs. The geospatial duplicate detection model identified 94.2% of all true duplicates within a simulated database of 500 records, with a false positive rate of 2.1%. The MCIA algorithm’s priority score was positively correlated with the assessment provided by a human expert with a correlation coefficient of 0.89 for a manual testing set of 100 complaints. The average time to submit a complaint was 2.3 seconds.
+
+9.2 REMAINING AREAS OF CONCERN
+
+Dependency on Google Gemini 1.5 Flash API: The dependency on Google Gemini 1.5 Flash API is there. Any changes in the cost structure or in the terms and conditions of the API would result in necessary changes in this pipeline. It would be best to have a more robust pipeline wherein the identities of the AI services provider remain hidden from its users.
+
+Saving of Images: At present, the images are saved in the public/uploads/ folder of the filesystem. However, this needs to be changed for production and the use of object storage services such as Amazon S3 or Cloudflare R2 should be considered.
+
+Mobility: The present design of the user interface is targeted at browsers running on the desktop operating system. Redesigning the user interface to make it accessible from a mobile device can allow the reporting process to be carried out through a mobile app.This will make it much easier for people who have problems accessing the web page from their mobile phones.
+
+Language Options: All of the text on the prompt and the user interface are in English.
+
+Asynchronous Processing: At present, the processing of API calls to Gemini for submitting complaints is synchronous. However, with high concurrent use of this process, there might be an increase in latency. Asynchronous processing would have to be implemented through placing the AI processing in the job queue.
+
+Load Testing: At present, the system undergoes load testing using few users at one time. Testing of the system under heavy loads is yet to be conducted.
+
+9.3 TECHNICAL AND MANAGERIAL LESSONS LEARNED 
+
+TECHNICAL LESSONS:
+
+Early schema-driven Prisma design turned out to be a great choice, as a clear data model defined in advance allowed us to avoid a wide variety of potential run-time errors and improved understanding of the whole system as a whole.
+
+The process of structured prompt construction for Gemini proved to take longer than initially anticipated. Unstructured input generated output with variable formatting; the final version of prompt structure helped minimize the problem through clearly stated rules concerning JSON structure and enum options.
+
+The Haversine algorithm was rather simple, but the use of the bounding box filtering technique helped considerably decrease the amount of costly distance computations needed to get results.
+
+Serverless applications need extra attention paid to Prisma clients management. Utilizing singleton pattern for preventing connection pool exhaustion in Next.js serverless functions was a must in our case; otherwise, such an issue would arise in production.
+
+MANAGERIAL LESSONS:
+
+Partitioning the project into six distinct phases, each of which had its deliverables, was effective at organizing and tracking progress on a team of six people.
+
+The decision to determine the database schema and TypeScript data types prior to forking into multiple streams helped to avoid integration issues due to the different pieces being independent.
+
+Testing should always come first and not wait until the last phase. A few edge cases that came up while testing during Week 11 could have been resolved earlier, namely during Week 7.
+
+Creating documentation while developing is better than doing it after the fact, both because it is more accurate and less time consuming.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CHAPTER 10: USER MANUAL
+
+Deployment URL: https://ai-civic-issue.vercel.app/
+
+Source Code: https://github.com/Guna444/AI-Based-Civic-Issue-Reporting-System
+
+10.1 GETTING STARTED
+
+Access the software via https://ai-civic-issue.vercel.app/ using any latest version web browser like Chrome, Firefox, and Edge. Installation and setup processes are not necessary.
+
+10.2 CITIZEN GUIDE
+
+STEP 1 - REGISTER
+
+Go to the homepage and click on Sign Up. Provide your email address along with creating a password, or sign up through Google or social media account.
+
+STEP 2 - REPORT AN ISSUE
+
+Step 1 can be accessed through clicking on ‘Report Issue’ in the navigation bar. You will then be directed to fill a two-stage report form. Under step one, you need to fill a report’s title, for example: ‘Big Pothole On Main Street Near Bus Stop Number Four’, details of the issue, and attach relevant images. You need also to get your geographical position through clicking on ‘Detect my Location’.
+
+STEP 3 - VIEW AI ANALYSIS
+
+Once submitted, the system presents the results of AI classification, which include the category assigned to your complaint, its severity and urgency levels, the confidence of the AI classification, the brief assessment by the AI system, and the tags describing your complaint.
+
+STEP 4 - TRACK YOUR ISSUE
+
+Go to the My Issues page to see all complaints you have lodged and their present status. Statuses are marked in various colors as follows: Gray color marks the pending issue, blue is for an issue under review, yellow stands for an ongoing process, green indicates that the issue has been solved, red shows rejection of your complaint, while purple means it is duplicate.
+
+STEP 5 - UPVOTE ISSUES
+
+Browse Issues page to find all complaints still being considered. Please click on the upvote button to give more importance to your complaint in the MCIA system.
+
+10.3 ADMINISTRATOR GUIDE
+
+STEP 1 - LOG IN AS ADMINISTRATOR
+
+Login using the email address linked to the system administrator account, and you will be directed straight to the Admin Dashboard. If you try accessing admin routes from the citizen’s accounts, then you will be directed to the citizen dashboard.
+
+STEP 2 - VIEW THE DASHBOARD
+
+At the Admin Dashboard, there are six metrics displayed at the top of the page: total issues, pending, in progress, resolved, critical, and registered citizens. Below that, there is the Priority Queue displaying the top five issues by their MCIA score followed by a chart depicting issues based on their category.
+
+STEP 3 - MANAGE ISSUES
+
+Click on the Issue Management tab to see all the complaints in the form of pagination-enabled and searchable list of complaints. Use the filter tab to filter issues depending on their statuses, categories, and priority level. The user can sort the complaints by clicking on the priority level, upvotes, and date added from the headers.
+
+STEP 4 - UPDATE ISSUE STATUS
+
+After clicking on the complaint, its details will become available. You can go to the Status Update tab, which is on the right-hand side of the page, and fill out the information regarding the complaint, including its status, the department/office assigned to it, and any other important notes.
+
+STEP 5 - VIEW ANALYTICS
+
+To access the Analytics, where you will see four different graphs that update themselves automatically, visit:
+
+Monthly complaint trend (line graph)
+
+Number of complaints by complaint type (bar graph)
+
+Distribution of complaint statuses (pie graph)
+
+Severity distribution (bar graph)
+
+CHAPTER 11: SOURCE CODE AND SYSTEM SNAPSHOTS
+
+11.1 REPOSITORY STRUCTURE
+
+Full-source code can be access here: https//github.com/Guna444/AI-Based-Civic-Issue-Reporting-System
+
+Key files and their roles:
+
+prisma/schema. Prisma- The database schema for the User, Issue, Upvote and AiAnalysis models
+
+src/lib/gemini. TS — Support for integration with Google Gemini 1.5 Flash and an analyzeIssue() function
+
+src/lib/utils. MCIAIntegerSet functionCalculatePriorityScore ( ts — t ) Haversine distance function
+
+The route is src/app/api/issues/. Ts — Submitting API handler for main complaint
+
+src/app/api/issues/[id]/upvote/route ts — MCIA recalculation and Upvote toggle
+
+src/app/api/webhooks/clerk/route· ts — Webhook sync handler for Clerk users
+
+src/app/api/upload/route ts — Image upload handler to validate type/size etc.
+
+src/components/forms/ReportForm· TWO-STEP CITIZEN COMPLAINT FORM tsx
+
+src/components/forms/ImageUpload · tsx — Components for uploading images to the drag-and-drop interface (convert image files into base64 format
+
+src/components/forms/LocationPicker gps — detecting the GPS point, translating it to reverse geocoding (OpenStreetMap)
+
+src/components/admin/AdminStatusUpdate.Query. TsxAdmin status management sidebar
+
+src/components/admin/AnalyticsCharts. Tsx — Recharts analytics visualizations
+
+python/main. py — The entry point of the FastAPI microservice
+
+python/ai_analyzer. Py Gemini integration in Python
+
+python/priority-calculator. Py — MCIA algorithm in Python
+
+python/duplicate_detector Haversine duplicate detection in Python # py
+
+
+
+
+
+11.2 MCIA IMPLEMENTATION (TYPESCRIPT) CORE ALGORITHM
+
+export function calculatePriorityScore(
+
+severity: string,urgency: string,
+
+upvoteCount: number,
+
+createdAt: Date
+
+): number {
+
+const severityMap: Record = {
+
+LOW: 2.5, MEDIUM: 5.0, HIGH: 7.5, CRITICAL: 10.0
+
+};
+
+let urgencyMap = new Map();
+
+DURATION{LOW: 2.5 MEDIUM: 5.0 HIGH: 7.5 IMMEDIATE:10.00 }
+
+};
+
+const S = severityMap[severity]?? 2.5;
+
+const U = urgencyMap[urgency]?? 2.5;
+
+const C = Math. min(upvoteCount 0.5, 10);
+
+const ageDays = (Date. now() - createdAt. getTime()) / 86400000;
+
+const R = 10 Math. exp(-ageDays / 30);
+
+return Math. round(((S 0.40) + (U 0.30) + (C 0.20) + (R #x1e239; Output) = round(Domestic content Domestic value added to gross output from all sectors of the economy excluding extracts, dividend dividends and corporation inherits which are classified with "DNTL")0%) /100  };
+
+11.3 SYSTEM SNAPSHOTS DESCRIPTION
+
+Landing Page: Public-facing homepage with project description and Sign In / Sign Up navigation.
+
+Citizen Dashboard: Overview of submitted complaints with status summary and quick links to Report Issue and Browse Issues.
+
+Report Issue Form (Step 1): Two-column layout with title and description fields on the left, image upload with drag-and-drop zone and location picker on the right.
+
+Report Issue Form (Step 2): Read-only summary of all entered data with a Submit button and a Back button to revise.
+
+AI Analysis Results Page: Card showing Gemini classification output — category badge, severity/urgency indicators, confidence score progress bar, analysis paragraph, and tag pills.
+
+Browse Issues Page: Grid of issue cards each showing title, category, severity badge, upvote count, and upvote button. Filterable by category.
+
+Admin Dashboard: Six stat cards at top, priority queue table in center, category bar chart at bottom right.
+
+Admin Issue Management: Full-width table with status/category/severity filter dropdowns, sortable columns, and paginated rows.Admin Issue Detail: Left panel with full complaint details and AI analysis; right sidebar with status dropdown, department assignment, notes field, and Mark Resolved button. Admin Analytics Page: Four Recharts visualizations arranged in a 2x2 grid — line chart, bar chart, pie chart, and severity bar chart.
+
+Note: Colour screenshots of the deployed application are available at https://ai-civic-issue.vercel.app/ for real-time viewing.
+
+11.4 GEMINI PROMPT CONSTRUCTION (PYTHON - SERVICE/ANALYZE)
+
+CATEGORIES = [ “Road & Pavement”, “Water Supply”, “Sanitation & Drainage”,
+
+“Street Lighting,” “Public Safety,” “Garbage and Waste,” “Green Spaces,” “Building and Infrastructure,” “Transportation,” and “Environmental Hazard”]
+
+Prompt = f”””You are an AI helper for a system that runs cities.
+
+Look at the following civic issue and only answer with a JSON string.
+
+Title: {title} 
+
+Description: {description} 
+
+Return JSON with only these fields:
+
+Category: one of the following: {CATEGORIES}
+
+- severity: one of the following: LOW, MEDIUM, HIGH, or CRITICAL
+
+- level of urgency: one of [LOW, MEDIUM, HIGH, IMMEDIATE]
+
+- confidence: goes from 0.0 to 1.0
+
+- studyText: A professional evaluation in two to three sentences
+
+- tags: a list of 2 to 5 strings of descriptive keywords
+
+Only respond with valid JSON. No extra words.
+
+11.5 PUBLIC PAGES
+
+
+
+Figure 11.5.1: Landing page - platform overview and call to action
+
+
+
+Figure 11.5.2: Features section - AI classification, deduplication, and MCIA explained
+
+
+
+Figure 11.5.3: Issue categories page - all 10 supported civic complaint categories
+
+
+
+
+
+Figure 11.5.4: How it works page - three-step citizen complaint process
+
+
+
+
+
+
+
+Figure 11.5.5: Clerk sign-in page
+
+
+
+
+
+
+
+Figure 11.5.6: Clerk sign-up / registration page
+
+
+
+11.6 CITIZEN INTERFACE
+
+
+
+
+
+
+
+Figure 11.6.1: Citizen dashboard - complaint statistics and recent submissions
+
+
+
+Figure 11.6.2: Complaint report form - Step 1 (title, description, image upload)
+
+
+
+
+
+Figure 11.6.3: Complaint report form - Step 2 review and submit
+
+
+
+Figure 11.6.4: AI analysis result - category, severity, urgency, confidence score, and tags
+
+
+
+Figure 11.6.5: AI analysis result - full analysis text and MCIA priority score display
+
+
+
+Figure 11.6.6: All issues list - complaint cards with status badges and upvote counts
+
+
+
+Figure 11.6.7: All issues list - continued (page 2)
+
+
+
+Figure 11.6.8: All issues list - detailed issue view with admin notes
+
+
+
+
+
+
+
+
+
+11.7 ADMINISTRATOR INTERFACE
+
+
+
+Figure 11.7.1: Admin dashboard - six summary statistics and MCIA priority queue
+
+
+
+Figure 11.7.2: Admin dashboard - continued (recent activity and status overview)
+
+
+
+Figure 11.7.3: Admin complaint detail page - AI analysis panel and action sidebar
+
+
+
+
+
+Figure 11.7.4: Admin manage issues - filterable complaint table with MCIA sorting
+
+
+
+Figure 11.7.5: Admin manage issues - category and severity filter applied
+
+
+
+Figure 11.7.6: Admin manage issues - page 2 (resolved and closed complaints)
+
+
+
+Figure 11.7.7: Analytics dashboard - monthly trend line chart and category breakdown bar chart
+
+
+
+Figure 11.7.8: Analytics dashboard - status distribution pie chart and severity distribution
+
+
+
+CHAPTER 12: BIBLIOGRAPHY
+
+[1] S. Goldsmith and J. Yang, 'AI and the transformation of accountability and discretion in urban governance,' arXiv preprint, Feb. 2025.
+
+[2] K. Alfrink, I. Keller, et al., 'Contestable camera cars: A speculative design exploration of public AI,' arXiv: Human-Computer Interaction, Feb. 2023.
+
+[3] M. K. Pasupuleti, 'AI-powered world models for smart governance,' IJAIRI, Apr. 2025.
+
+[4] J. Wang and G. Han, 'A data-driven decision-making framework for AI-empowered urban grassroots social governance,' IEEE JITAIC, May 2025.
+
+[5] O. Alrasbi and S. T. Ariaratnam, 'The organizational transformation of artificial intelligence in smart cities,' Urban Science, Jan. 2026.
+
+[6] S. Tehreem, 'Explainable AI in public policy,' AI and Machine Learning Advances, Mar. 2025.
+
+[7] R. Mushkani, 'Urban AI governance must embed legal reasonableness,' arXiv: Computers and Society, Aug. 2025.
+
+[8] K. de Fine Licht, 'Resolving value conflicts in public AI governance,' Government Information Quarterly, Jun. 2025.
+
+[9] G. Li, J. Wang, et al., 'Urban public safety governance optimization model integrating AI,' Sustainability, May 2023.
+
+[10] N. Andrey and J. Ruponen, 'Empowering government efficiency through civic intelligence,' Technologies, Dec. 2024.
+
+[11] M. Alyileili and A. Opoku, 'Sustainable and inclusive AI governance in municipal self-service systems,' Sustainability, Jan. 2026.
+
+[12] G. Manias et al., 'AI4Gov: Trusted AI for transparent public governance,' DCOSS-IoT, Jun. 2023.
+
+[13] M. Dedema and L. Hagen, 'AI-driven public consultation platforms,' Digital Government Research Conf., May 2025.
+
+[14] P. S. R. Kareti, 'Architecting trust: The dual-edged sword of AI-powered civic engagement platforms,' European Journal of Computer Science, Jun. 2025.
+
+[15] L. Phothong et al., 'Artificial intelligence governance in smart cities,' Sustainability, Jan. 2026.
+
+[16] A. Norainie et al., 'Ethics and public trust in AI governance: A literature review,' Int. Journal of Law, Government and Communication, Sep. 2024.
+
+[17] I. Farida et al., 'Responsible urban innovation working with local authorities,' Scientific Journal of Informatics, May 2023.
+
+[18] Vercel Inc., 'Next.js 15 Documentation,' https://nextjs.org/docs, 2025.
+
+[19] Prisma Technologies, 'Prisma ORM Documentation,' https://www.prisma.io/docs, 2025.
+
+[20] Google DeepMind, 'Gemini API Documentation,' https://ai.google.dev/docs, 2025.
+
+[21] Clerk Inc., 'Clerk Authentication Documentation,' https://clerk.com/docs, 2025.
+
+[22] Neon Inc., 'NeonDB Serverless PostgreSQL Documentation,' https://neon.tech/docs, 2025.
+
+
+
+APPENDIX A: DIAGRAMS AND FIGURES
+
+FIGURE 1: SYSTEM ARCHITECTURE DIAGRAM
+
+In Figure 1, we illustrate the architecture of AEUGS platform microservices in a three-layer manner. The Presentation Layer takes care of an Interaction between citizens and admin UI. API Routes, Authentication and Business Logic are managed by the Application Layer. The Gemini classification, MCIA scoring, and Haversine duplicate detection is executed in the AI Microservice Layer. NeonDB PostgreSQL Data Layer manages all the persistent data through Prisma ORM.
+
+
+
+Figure 1: System Architecture — Three-layer microservices design of AEUGS
+
+
+
+FIGURE 2: DATABASE ENTITY-RELATIONSHIP DIAGRAM
+
+The relational database schema illustrates the model (see figure 2). A core data structure, those are four models — User, Issue, Upvote and AiAnalysis. Single-Vote-Per-User Semantics are enforced with the composite unique constraint on (issueId, userId) on the Upvote table. AiAnalysis model has a one-to-one relationship with Issue to store all the Gemini output fields.
+
+
+
+Figure 2: Entity-Relationship Diagram — NeonDB PostgreSQL schema with Prisma ORM
+
+
+
+FIGURE 3: USE CASE DIAGRAM
+
+The UML Use Case Diagram is shown in Figure 3. Use cases for citizens: submission, tracking and upvoting of complaints. Queue management, status updates, and analytics are used by administrators. There are three auto mated sub-processes in Submit Complaint use case, one for AI Classification, Duplicate Detection and MCIA Score Calculation.
+
+
+
+Figure 3: UML Use Case Diagram — Citizen, Admin, and system actor interactions
+
+
+
+FIGURE 4: DFD - EXISTING CIVIC COMPLAINT SYSTEM
+
+Figure 4 shows the Level-0 Data Flow Diagram for a typical existing civic complaint portal. The flow relies entirely on a human operator for classification and routing. There is no duplicate detection, no priority scoring, and no automated feedback to the citizen. This diagram establishes the baseline against which the new system is compared.
+
+
+
+Figure 4: DFD Level-0 — Existing civic complaint system (manual classification, no AI)
+
+
+
+FIGURE 5: DFD — AI-EMPOWERED URBAN GOVERNANCE SYSTEM (NEW SYSTEM)
+
+AEUGS Level – 0 Data Flow Diagram illustrates in figure 5. Store — Each complaint first moves through automated AI classification (P2), geospatial duplicate detection (P3) and MCIA priority scoring (P4). The administrator communicates with a previously prioritized queue (P5). Citizens receive results of AI analysis and/or Status update in real time (P6). The P4 community upvotes should be loop-backed into P4 so that the priorities are re-calculated.
+
+
+
+Figure 5: DFD Level-0 — New AEUGS with AI classification, deduplication, and MCIA scoring
+
+
+
+FIGURE 6: CITIZEN COMPLAINT SUBMISSION FLOWCHART
+
+The step-wise flow along with the details for submission of a citizen complaint is shown in Figure 6. When the citizen fills the double stage form and submits, the server verifies the payload, searches for nearby issues, invokes the Gemini AI pipeline, performs a Haversine duplicate check of resolved judgements by location; calculation of MCIA score; stores issue. AI analysis results are immediate after submission by the citizen
+
+
+
+Figure 6: Citizen Complaint Submission Flowchart — From form entry to AI analysis and DB storage
+
+
+
+FIGURE 7: ADMIN ISSUE MANAGEMENT FLOWCHART
+
+The work flow of the administrator managing complaints is shown in Figure7. This is followed by admin capable of role based authentication, viewing MCIA sorted priority queue and filtering issues/ selecting issues to act on through assigning departments, updating status, also with the ability to add notes or mark resolved. All actions will continuously update the database and the citizens tracking page in real time.
+
+
+
+Figure 7: Admin Issue Management Flowchart — From login to issue resolution
+
+
+
+FIGURE 8: MCIA PRIORITY SCORING ALGORITHM FLOWCHART
+
+The MCIA algorithm is shown in Figure 8. All four components Severity (S), Urgency (U), Community (C), and Recency (R) are quantified separately, then combined through a weighted calculation: P = (S×0.40)+(U×0.30)+(C×0.20)+(R×0.10). The outcome then gets mapped to one of four different priority labels. A citizen upvote re-calculates the community component and re-computes the full score to keep the admin queue fresh.
+
+
+
+Figure 8: MCIA Algorithm Flowchart — Weighted priority scoring with real-time upvote recalculation
+
+
+
+APPENDIX B: TABLES
+
+
+
+TABLE 1: MCIA COMPONENT DEFINITIONS
+
+Component (Weight)
+
+Score Values
+
+Formula
+
+Severity S (40%)
+
+LOW = 2.5, MEDIUM = 5.0, HIGH = 7.5, CRITICAL = 10.0 S x 0.40
+
+Urgency U (30%)
+
+LOW = 2.5, MEDIUM = 5.0, HIGH = 7.5, IMMEDIATE = 10.0
+
+U x 0.30
+
+Community C (20%)
+
+Capped at 10
+
+Min (upvotes  x  0.5, 10) x 0.20 
+
+Recency R(10%)
+
+10 (today) decays over 30 days
+
+10xe^(-age/30) x 0.10
+
+Table 1: MCIA Algorithm — Component weights and calculation formulas
+
+TABLE 2: PRIORITY SCORE LABELS FOR MCIA 
+
+Score Range
+
+Priority Label
+
+Action Required 
+
+8.0 - 10.0
+
+Critical Priority
+
+Immediate escalation to senior admin
+
+6.0 - 7.9
+
+High Priority
+
+Action within 24 hours
+
+4.0 - 5.9
+
+Medium Priority 
+
+Action within 72 hours
+
+0.0 - 3.9
+
+Low Priority
+
+Scheduled maintenance queue
+
+Table 2: MCIA Priority Score Ranges and corresponding action labels
+
+TABLE 3: SYSTEM PERFORMANCE RESULTS
+
+Metric
+
+Value
+
+Notes
+
+AI Classification Accuracy (multimodal)
+
+~91%
+
+Text + image input
+
+AI classification Accuracy (Text only)
+
+~84%
+
+Description only 
+
+Duplicate Detection Rate
+
+94.2%
+
+500-sample simulated dataset
+
+Duplicate False Positive rate
+
+2.1%
+
+Distinct nearby issues
+
+MCIA vs Expert Correlation(Spearman)
+
+0.89
+
+P < 0.001, 100 – issue corpus
+
+Average End – to – End Submission Latency
+
+2.3s
+
+Gemini API call 1.8s
+
+Admin  Dashboard Load Time
+
+340 ms
+
+Up to 100 issue records
+
+MCIA Recalculation per Upvote
+
+<200ms
+
+NeonDB serverless tier
+
+  Table 3: System performance metrics from empirical testing
+

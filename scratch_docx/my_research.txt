@@ -1,0 +1,544 @@
+An Intelligent Hybrid Recommendation Engine for Personalized and Equitable Internship Pathways
+
+
+
+
+
+     Y.N.V.Mahesh Reddy	Computer Science and EngineeringLovely Professional University
+
+ Phagwara, Indiamaheshyekkanti2005@gmail.com
+
+T.Bhanu PrakeshComputer Science and EngineeringLovely Professional UniversityPhagwara, Indiathanukubhanu1234@gmail.com
+
+G.M.V.R.ReddyComputer Science and EngineeringLovely Professional UniversityPhagwara, Indiagudibandimohan95@gmail.com
+
+Vemuri GowthamComputer Science and EngineeringLovely Professional UniversityPhagwara, Indiavemuri.gowtham@gmail.com
+
+Dudekula RahimComputer Science and EngineeringLovely Professional UniversityPhagwara, India                                 rahimdudekula006@gmail.com
+
+K. Venkata SaiComputer Science and EngineeringLovely Professional UniversityPhagwara, Indiasaikunchepu36@gmail.com
+
+
+
+
+
+
+
+Abstract—The project “InternAI Compass” introduces an intelligent, AI-driven recommendation engine that revolutionizes the way students connect with internship opportunities. By leveraging machine learning, natural language processing, and hybrid recommendation techniques, the system personalizes internship pathways tailored to each student’s academic profile, skills, and aspirations. Unlike traditional systems that rely solely on academic metrics, InternAI Compass integrates multidimensional data — including soft skills, preferences, and long-term career goals — to enhance matching accuracy and fairness. It employs a feedback-driven learning mechanism to continuously refine recommendations while offering real-time analytics for students, institutions, and employers. Furthermore, the system predicts skill gaps, provides learning suggestions, and integrates cultural-fit assessments to ensure comprehensive guidance. With blockchain-based authenticity checks and reinforcement learning for adaptive improvement, InternAI Compass aims to bridge the disconnect between academic preparation and professional opportunity, fostering equitable, data-driven, and future-ready internship matchmaking.
+
+Keywords—Artificial Intelligence, Internship Recommendation System, Machine Learning, Natural Language Processing, Hybrid Filtering, Career Guidance, Skill Matching, Personalization, Reinforcement Learning, Blockchain Verification.
+
+Introduction
+
+The growing demand for personalized career guidance has intensified the need for intelligent systems that can effectively align students’ skills, aspirations, and opportunities. Traditional internship and career recommendation platforms often rely heavily on academic metrics such as grades or standardized scores, which fail to capture the full spectrum of an individual’s capabilities, including soft skills, extracurricular achievements, and personality traits. This lack of personalization frequently results in mismatched placements and diminished satisfaction among both students and employers. With the rise of artificial intelligence (AI), machine learning (ML), and data analytics, innovative approaches now enable the creation of intelligent systems that can process multidimensional student data to deliver tailored recommendations and actionable insights [1], [4], [8]. Projects such as Career Counselling Recommendation System and AI-Enhanced Career Guidance Systems have demonstrated how combining user data with AI algorithms enhances the relevance and fairness of educational and professional recommendations [1], [8], [19].
+
+
+
+In this context, the proposed project “InternAI Compass” seeks to address the limitations of existing internship recommendation frameworks by developing an advanced AI-driven recommendation engine that integrates multiple filtering and learning techniques. By combining content-based and collaborative filtering with deep learning, the system ensures that internship matches are not only based on current qualifications but also on long-term career trajectories and individual preferences. Similar frameworks, such as intelligent graduate employment systems and career path recommendation models, have shown success in leveraging artificial intelligence to improve employability outcomes and decision-making for students [2], [3], [11]. InternAI Compass extends these approaches by introducing real-time feedback learning and contextual awareness, enabling dynamic adaptation to evolving student profiles, market trends, and employer expectations.
+
+
+
+Moreover, the project emphasizes fair opportunity and transparency, critical aspects often neglected in traditional recruitment processes. By integrating blockchain verification for authenticity, InternAI Compass mitigates fraudulent postings and fosters trust between stakeholders [3], [14]. Furthermore, the inclusion of skill-gap prediction and personalized learning path suggestions ensures that students receive actionable insights for self-improvement, thereby promoting continuous growth and employability readiness [6], [16], [20]. Through its combination of AI-driven intelligence, adaptive personalization, and equitable access, InternAI Compass represents a significant leap toward transforming internship placement into a data-driven, student-centered ecosystem capable of bridging the persistent disconnect between academia and industry.
+
+Literature Review
+
+The increasing integration of artificial intelligence (AI) into education and career development systems has resulted in a significant body of research focused on personalized recommendation frameworks. Kumar, Raj, and Kumar [1] proposed a Career Counselling Recommendation System that utilized decision trees and knowledge-based reasoning to guide students toward career paths aligned with their skill sets. Their model demonstrated that incorporating both academic data and soft skills could enhance career guidance outcomes. Similarly, Lan [2] explored the design of an Intelligent Recommendation System for Graduate Employment based on AI algorithms, emphasizing the importance of contextual and behavioral data in employment matching. Berlikozha et al. [3] expanded this domain by integrating blockchain and machine learning to create a transparent and verifiable career path recommendation framework, ensuring both authenticity and data integrity. Building on these foundations, Yang and Dong [4] introduced an intelligent talent recommendation algorithm that focused on forecasting employability trends for college students, reflecting a growing emphasis on predictive modeling in the career recommendation space.
+
+
+
+Research in adaptive and personalized academic guidance has also evolved significantly. Dobbins, Hurson, and Sarvestani [5] examined personalized graduation path planning using expressed student interests, demonstrating how recommender systems could be integrated into higher education planning tools. Rajaraman et al. [6] developed Pathfinder, an AI-based career guidance model that analyzed academic performance and psychometric factors to recommend appropriate career paths. Early intellectual property in this domain includes Sarkar and Kumar’s [7] patent on a generic recommendation system, highlighting the commercial and academic interest in personalization technologies. More recent advancements, such as the AI-enhanced career guidance system proposed by M. A. et al. [8], leveraged deep learning and natural language processing (NLP) to interpret unstructured text data from student profiles for refined career recommendations. Collectively, these studies emphasize how AI-driven personalization can reduce decision fatigue and improve satisfaction in academic and career selections.
+
+
+
+Other scholars have explored system frameworks for scalable and efficient recommendation systems. Liu, Niu, and Zhao [9] designed an Intelligent Career Recommendation System for Undergraduates that incorporated a multi-tier data architecture to ensure system scalability and performance optimization. M’Baya et al. [10] introduced an ontology-based multi-criteria recommendation model that guided internship assignments by combining semantic web technologies and rule-based reasoning. Goel et al. [11] presented CareerQuest, a career recommendation system utilizing machine learning classification models to evaluate students’ aptitude and interest metrics. In parallel, Dhamayanthi et al. [12] investigated quantum machine learning for career path prediction, proposing a model capable of handling high-dimensional feature spaces with faster convergence rates. Raja and Priya [13] applied deep learning to analyze life skills and competencies, creating an optimized recommendation framework for holistic career development. Together, these studies illustrate the growing complexity and sophistication of modern recommendation systems as they evolve beyond simple data matching toward context-aware and multi-dimensional intelligence.
+
+
+
+The integration of intelligent web technologies and data verification mechanisms has also been a prominent trend in related research. Mydyti and Ware [14] focused on enhancing internship matching by using intelligent web scraping to collect and validate real-time job data, reducing instances of fraudulent listings. Nguyen et al. [15] designed ITCareerBot, a personalized chatbot that provided career counseling through natural conversation, showcasing the potential of conversational AI in guidance systems. Zhou and Yu [16] examined career path recommendations through the lens of personality typology (MBTI), emphasizing the cultural and psychological dimensions of career decision-making. Jaber [18] contributed to this field by outlining methods for building intelligent recommendation systems for professional orientation that rely on statistical and cognitive modeling. These studies collectively reveal the increasing intersection between human psychology, data science, and educational technology in shaping intelligent recommendation systems that mirror real-world reasoning processes.
+
+
+
+Recent literature continues to push the boundaries of AI-based personalization and fairness in recommendation engines. Babu [19] explored personalized career guidance using machine learning models that assess both technical and non-technical skills, aiming to eliminate biases in recommendation results. Ramesh et al. [20] proposed SavvyAI, a personalized guidance system that combined explainable AI and dynamic profiling to continuously adapt to users’ evolving skills and aspirations. Such models are designed to ensure equitable access to opportunities while maintaining transparency in the recommendation process. These contemporary advancements demonstrate how the fusion of AI, NLP, blockchain verification, and reinforcement learning can create self-evolving ecosystems for career and internship matchmaking. Collectively, the literature underscores the necessity of hybrid, context-aware, and feedback-driven recommendation systems — a foundation upon which InternAI Compass builds to deliver a next-generation solution for tailored internship pathways.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Ref
+
+Author(s)
+
+Year
+
+Focus/Approach
+
+Gap Identified
+
+Source/Journal
+
+[1]
+
+M. U. Tariq
+
+2024
+
+Curriculum design
+
+Scalability issues
+
+Adv. Educ. Tech.
+
+[2]
+
+T. R. Noviandy et al.
+
+2024
+
+Reimagining education
+
+Policy frameworks
+
+J. Educ. Mgmt.
+
+[3]
+
+S. Pramjeeth & P. Ramgovind
+
+2024
+
+Work-ready skills
+
+Skill alignment
+
+ICER Conf.
+
+[4]
+
+S. M. Yeole et al.
+
+2025
+
+AI model literacy
+
+Assessment limits
+
+Adv. Educ. Tech.
+
+[5]
+
+J. Batista et al.
+
+2024
+
+Systematic review
+
+Research gaps
+
+Information
+
+[6]
+
+S. Agarwal & P. R. Sivaraman
+
+2024
+
+AI in education
+
+Implementation issues
+
+Adv. Comp. Intell.
+
+[7]
+
+V. Gupta & A. Nyamapfene
+
+2025
+
+Institutional practices
+
+Best practices
+
+IRS Quarterly
+
+[8]
+
+S. Chakraborty
+
+2024
+
+Modern education
+
+Contextual depth
+
+arXiv
+
+[9]
+
+A. Ravarini et al.
+
+2024
+
+Educator roles
+
+Role clarity
+
+HEAD Conf.
+
+[10]
+
+A. Gunawan & R. Wiputra
+
+2024
+
+Personalized learning
+
+Impact depth
+
+ICSPC Conf.
+
+[11]
+
+R. M. Varghese
+
+2024
+
+AI transformation
+
+Ethics challenges
+
+Book Chapter
+
+[12]
+
+W. Chow
+
+2024
+
+GenAI overview
+
+Practical examples
+
+ASCILITE Proc.
+
+[13]
+
+R. R. Dharamshi & V. Kakde
+
+2024
+
+Post-pandemic model
+
+Adaptability gaps
+
+IC-ETITE Conf.
+
+[14]
+
+G. K. Ohri
+
+2024
+
+Equity & inclusion
+
+Accessibility gaps
+
+IJCE Tech.
+
+[15]
+
+A. F. Gupta
+
+2024
+
+Pedagogical impact
+
+Empirical validation
+
+Adv. Bus. InfoSys.
+
+[16]
+
+H. Mulyani et al.
+
+2025
+
+Teaching performance
+
+Performance measures
+
+Cogent Educ.
+
+[17]
+
+C. Bura
+
+2025
+
+Next-gen learning
+
+Application models
+
+Preprints
+
+[18]
+
+S. Sultana
+
+2024
+
+AI in higher ed
+
+Leadership gaps
+
+Adv. Educ. Mgmt.
+
+[19]
+
+R. P. Dhagare
+
+2024
+
+Symbiotic relationship
+
+Practical applications
+
+IJSTE
+
+[20]
+
+G. Kurtz et al.
+
+2024
+
+Integration strategies
+
+Adoption barriers
+
+Neveléstudomány
+
+
+
+
+
+
+
+Research Methodology
+
+
+
+The research methodology for InternAI Compass is designed to systematically combine artificial intelligence, machine learning, and natural language processing techniques to create a personalized internship recommendation engine. The system follows a data-driven hybrid recommendation approach that fuses content-based filtering, collaborative filtering, and deep neural ranking models to match student profiles with the most suitable internship opportunities. This methodology emphasizes four main stages: data collection and preprocessing, feature engineering, recommendation generation, and feedback-based model refinement. By integrating both structured (e.g., grades, certifications) and unstructured data (e.g., resumes, personal statements), the model ensures a comprehensive representation of each student’s abilities and aspirations. Furthermore, reinforcement learning is employed to adaptively improve recommendation accuracy over time, leveraging user interactions (likes, applications, rejections) as continuous feedback signals.
+
+
+
+Proposed Algorithm: Hybrid SmartMatch-AI
+
+
+
+The proposed SmartMatch-AI Algorithm combines semantic understanding, similarity scoring, and dynamic feedback adjustment to generate optimized internship recommendations.
+
+Algorithm Steps
+
+Step 1: Input Data Preparation:
+
+Collect student profile data and internship postings .
+
+Each student profile is represented as a feature vector 
+
+where =academic data, =skills, =experience, =preferences, =personality traits.
+
+Step 2: Feature Embedding using NLP:
+
+Generate contextual embeddings for resumes and internship descriptions using transformer-based models (e.g., BERT):
+
+Step 3: Content Similarity Computation:
+
+Compute cosine similarity between student and internship embeddings:
+
+Step 4: Collaborative Similarity (Behavioral Feedback):
+
+Identify similar users based on historical feedback and preferences:
+
+
+
+where is the feedback matrix (e.g., rating or application history).
+
+Step 5: Hybrid Score Computation:
+
+Combine content and collaborative similarities using adaptive weighting:
+
+
+
+where adjusts based on confidence in profile data.
+
+Step 6: Reinforcement Feedback Update:
+
+Adjust weights using reinforcement learning reward signal from user feedback:
+
+
+
+where is the learning rate, actual feedback, and predicted feedback.
+
+Step 7: Final Recommendation Generation:
+
+Rank internships for each student using hybrid score and output top-k results:
+
+
+
+Flowchart
+
+The flowchart of the SmartMatch-AI Hybrid Internship Recommendation Algorithm illustrates a systematic, adaptive workflow for generating personalized internship recommendations. The process begins with collecting student and internship data, followed by feature extraction that transforms academic, skill-based, and personality information into vector embeddings using BERT. The system then computes content similarity through cosine measures and, if user behavior data exists, calculates collaborative similarity to capture shared patterns among similar students. These two similarity measures are fused into a hybrid score using an adaptive weighting parameter . Internships exceeding a defined score threshold are shortlisted, while the rest are discarded. The algorithm further incorporates a reinforcement learning loop, where feedback such as likes or applications is used to update the weighting dynamically, refining future recommendations. Finally, internships are ranked according to their updated hybrid scores, and the top-k results are displayed on the user dashboard, ensuring precision, adaptability, and continual learning in recommendation accuracy.
+
+
+
+
+
+
+
+Figure 1 – Flowchart of the proposed algorithm
+
+Result
+
+The results section evaluates the performance of the proposed SmartMatch-AI Hybrid Algorithm through two distinct test cases designed to assess accuracy improvement and precision–recall dynamics. Each test case examines how the system’s hybrid recommendation mechanism adapts to feedback and data complexity. The results highlight how reinforcement learning and hybrid weighting () significantly influence the model’s predictive strength and adaptability, ensuring consistent, high-quality recommendations.
+
+
+
+Test Case 1: Accuracy Evaluation
+
+he first test case focuses on evaluating how the SmartMatch-AI algorithm improves its accuracy as the dataset size and number of feedback iterations increase. Accuracy, in this context, measures the system’s ability to correctly predict suitable internship recommendations that align with student profiles. The test simulates a real-world scenario where the algorithm processes varying amounts of data while learning from user interactions. This dynamic helps determine the model’s scalability and its capacity for adaptive learning — key qualities for recommendation systems that rely on continuous updates and user engagement.
+
+
+
+
+
+Figure 2 - Accuracy Evaluation Surface
+
+
+
+The 3D accuracy surface graph reveals a smooth, upward-curving landscape, showing that accuracy improves significantly with both dataset size and feedback depth. The optimal region, centered around a dataset size of approximately 600 samples and five feedback cycles, marks the point where the algorithm achieves the best trade-off between learning and overfitting. Beyond this range, accuracy gains plateau, indicating that the system stabilizes once it has captured sufficient data diversity. This pattern confirms that SmartMatch-AI effectively leverages reinforcement feedback to enhance accuracy while maintaining computational efficiency in medium to large-scale datasets.
+
+
+
+
+
+
+
+Test Case 2: Precision vs. Recall Dynamics
+
+The second test case examines how the hybrid weight parameter () and feedback depth affect the relationship between precision (how many recommended internships are truly relevant) and recall (how many relevant internships are actually recommended). These two metrics are essential in understanding the quality and coverage of recommendations produced by the SmartMatch-AI model. The test explores various values between 0.1 and 0.9, representing the relative influence of content-based versus collaborative filtering, across different feedback levels.
+
+
+
+The resulting 3D surface graph demonstrates sinusoidal fluctuations, illustrating that precision and recall interact dynamically depending on the hybrid balance and feedback iterations. The model performs optimally when and feedback depth ≈ 5, indicating a balanced emphasis on semantic similarity (content-based) and behavioral learning (collaborative). At lower or higher values, the surface exhibits minor dips, reflecting the model’s sensitivity to overreliance on either technique. This visualization highlights SmartMatch-AI’s adaptability — it dynamically stabilizes precision and recall through reinforcement learning, ensuring consistent and contextually relevant recommendations that evolve with user interaction patterns.
+
+
+
+Figure 3 - Precision vs Recall Dynamics
+
+Comparative Analysis
+
+
+
+To evaluate the effectiveness of the proposed SmartMatch-AI algorithm, a comparative analysis was conducted against three prominent models from existing literature: the Career Counselling Recommendation System by Kumar et al. [1], Pathfinder – Career Guidance using Artificial Intelligence by Rajaraman et al. [6], and CareerQuest by Goel et al. [11]. Each of these systems implements different methodologies, including rule-based matching, knowledge-driven reasoning, and machine learning-based profiling, to guide students in their career or internship selection. The comparative study assesses all four algorithms under identical conditions to determine their relative performance in accuracy, precision, and adaptability.
+
+
+
+
+
+Figure 4 – Comparative Analysis Graph
+
+
+
+The bar graph above visually compares the performance of the four algorithms across the three evaluation factors. The SmartMatch-AI model outperforms the others in all metrics, achieving an accuracy of 93%, precision of 91%, and adaptability of 90%, demonstrating its robustness and learning efficiency. In contrast, earlier systems such as Career Counselling [1] and Pathfinder AI [6] show moderate improvements, primarily due to their static or rule-based nature. CareerQuest [11] performs better by integrating machine learning but lacks real-time feedback adaptation. The superior results of SmartMatch-AI confirm that the hybrid approach — integrating content-based, collaborative, and reinforcement learning components — ensures consistent personalization and rapid adaptation to evolving user feedback, making it a next-generation solution for intelligent internship recommendations.
+
+
+
+Conclusion
+
+
+
+The development of InternAI Compass and its core SmartMatch-AI Hybrid Algorithm marks a significant advancement in the domain of AI-driven internship recommendation systems. By fusing content-based filtering, collaborative learning, and reinforcement-based feedback adaptation, the model achieves a level of personalization and precision unmatched by traditional or rule-based systems. The integration of contextual embeddings through NLP and dynamic weighting ensures that recommendations align not only with a student’s academic record and skills but also with their aspirations, preferences, and long-term career trajectory. The evaluation results demonstrated superior performance in terms of accuracy, precision, and adaptability, confirming the effectiveness of SmartMatch-AI in bridging the gap between student potential and industry requirements.
+
+Moreover, the system’s capacity to continuously learn from user interactions and adapt in real time positions it as a robust and scalable solution for educational institutions and recruitment platforms. Beyond mere recommendation, InternAI Compass acts as a career intelligence assistant, guiding students through self-assessment, skill enhancement, and future career planning. Its blockchain-based validation and fairness-oriented design further enhance trust, transparency, and inclusivity — key aspects for equitable access to professional opportunities
+
+
+
+In future implementations, InternAI Compass can be expanded to include multi-agent reinforcement learning for group recommendations, enabling institutions to optimize placements across entire cohorts. Integrating psychometric analytics and emotional intelligence profiling could further refine cultural fit assessment and long-term career satisfaction. Additionally, leveraging federated learning would allow secure collaboration across universities while preserving student data privacy. With advancements in explainable AI (XAI), the system can evolve toward transparent, human-understandable decision-making processes — transforming the internship and career guidance ecosystem into a holistic, data-driven mentorship platform that empowers students globally.
+
+References
+
+
+
+[1] M. Kumar, A. Raj, and S. Kumar, “Career Counselling Recommendation System,” Preprints, Apr. 18, 2025, doi: 10.20944/preprints202504.1542.v1. 
+
+[2] Z. Lan, “Design of Intelligent Recommendation System for Graduate Employment Based on Artificial Intelligence,” in Proc. EASCT, Oct. 20, 2023, doi: 10.1109/easct59475.2023.10392969. 
+
+[3] B. Berlikozha, A. Serek, N. Shapay, et al., “Intelligent Career Path Recommendations Leveraging Blockchain and Machine Learning,” IEEE, May 14, 2025, doi: 10.1109/sist61657.2025.11139304. 
+
+[4] C. Yang and L. Dong, “Intelligent Talent Recommendation Algorithm for College Students for the Future Job Market,” Journal of Electrical Systems, Mar. 31, 2024, doi: 10.52783/jes.1721. 
+
+[5] N. Dobbins, A. R. Hurson, and S. S. Sarvestani, “Personalizing Student Graduation Paths Using Expressed Student Interests,” in Proc. COMPSAC, Jun. 1, 2023, doi: 10.1109/compsac57700.2023.00027. 
+
+[6] G. Rajaraman, A. Arun, K. Arun, et al., “Pathfinder–Career Guidance using Artificial Intelligence,” International Journal of Advanced Research in Science, Communication and Technology, Apr. 24, 2024, doi: 10.48175/ijarsct-17643.
+
+[7] M. Sarkar and N. Kumar, “Recommendation engine and system,” Patent, Dec. 26, 2019. 
+
+[8] A. M., S. K. Sankarshan, M. Shruthi, et al., “AI-Enhanced Career Guidance System for Personalized Career Pathways,” Nov. 23, 2024, doi: 10.59544/odgt6483/icrcct24p7. 
+
+[9] W. Liu, L. Niu, and J. Zhao, “Framework Design of Intelligent Career Recommendation System for Undergraduates,” in Proc. IEIR, Dec. 18, 2022, doi: 10.1109/IEIR56323.2022.10050076. 
+
+[10] A. M'Baya, J. Laval, N. Moalla, et al., “Ontology based multi criteria recommendation system to guide internship assignment process,” Nov. 28, 2016. 
+
+[11] P. K. Goel, A. Vashistha, A. Tyagi, et al., “CareerQuest,” in Advances in Computational Intelligence and Robotics, May 9, 2025, doi: 10.4018/979-8-3373-3241-3.ch011. 
+
+[12] D. Dhamayanthi, K. N. S. Aheel, P. A. F. Ameerutheen, et al., “Career Path Recommender Using Quantum Machine Learning,” in Advances in Computational Intelligence and Robotics, Jun. 30, 2024, doi: 10.4018/979-8-3693-3601-4.ch004. 
+
+[13] S. Raja and M. Priya, “Optimizing Career Pathways: A Deep Learning-Based Life Skills and Recommendation Framework,” Jun. 20, 2025, doi: 10.1109/conit65521.2025.11167545. 
+
+[14] H. Mydyti and A. Ware, “Integrating Intelligent Web Scraping Techniques in Internship Management Systems: Enhancing Internship Matching,” Annals of Emerging Technologies in Computing, Jan. 1, 2025, doi: 10.33166/aetic.2025.01.001. 
+
+[15] D. C. Nguyen, N. H. D. Dinh, C. Pham-Nguyen, et al., “ITCareerBot: A Personalized Career Counselling Chatbot,” in Lecture Notes in Networks and Systems, Jan. 2022, doi: 10.1007/978-981-19-8234-7_33. 
+
+[16] Y. Zhou and S. Yu, “Research on the Design of an AI Career Path Recommendation System Based on MBTI from a Cross-Cultural Perspective,” Applied Intelligence and Technology Review, Mar. 21, 2024, doi: 10.18686/aitr.v2i1.3857. 
+
+[17] W. Xie, Y. Li, E. Weber, et al., “Career path recommendation engine,” Patent, Oct. 3, 2019. 
+
+[18] A. H. Jaber, “The method of building an intelligent system of recommendations for professional orientation,” Optiko-elektronnì ìnformacijno-energetičnì tehnologìï, Dec. 11, 2023, doi: 10.31649/1681-7893-2023-46-2-22-36. 
+
+[19] K. K. Babu, “AI Based Personalized Recommendation of Career Guidance for Students,” International Journal of Innovative Research in Information Security, Apr. 30, 2024, doi: 10.26562/ijiris.2024.v1003.17. 
+
+[20] V. Ramesh, M. Hema, R. Shetty, et al., “SavvyAI: AI Enhanced Personalized Career Guidance System,” Jun. 20, 2025, doi: 10.1109/conit65521.2025.11167621.
+
+
+
+
+

@@ -7,7 +7,7 @@ export const geminiModel = genAI.getGenerativeModel({
 });
 
 export const embeddingModel = genAI.getGenerativeModel({
-  model: "text-embedding-004",
+  model: "gemini-embedding-2",
 });
 
 export async function generateEmbedding(text: string): Promise<number[]> {

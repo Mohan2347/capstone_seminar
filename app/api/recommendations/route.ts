@@ -22,33 +22,41 @@ export async function GET(req: Request) {
     );
   }
 
-  // Check for cached recommendations (< 1 hour old) unless refresh requested
-  if (!refresh) {
-    const cached = await db.recommendation.findMany({
-      where: { studentId: user.student.id },
-      include: {
-        internship: {
-          include: {
-            company: { select: { name: true, logoUrl: true } },
+  try {
+    // Check for cached recommendations (< 1 hour old) unless refresh requested
+    if (!refresh) {
+      const cached = await db.recommendation.findMany({
+        where: { studentId: user.student.id },
+        include: {
+          internship: {
+            include: {
+              company: { select: { name: true, logoUrl: true } },
+            },
           },
         },
-      },
-      orderBy: { rank: "asc" },
+        orderBy: { rank: "asc" },
+      });
+
+      const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000);
+      if (
+        cached.length > 0 &&
+        cached[0].createdAt > oneHourAgo
+      ) {
+        return NextResponse.json({ recommendations: cached, cached: true });
+      }
+    }
+
+    // Generate fresh recommendations
+    const recommendations = await generateRecommendations(user.student.id, {
+      forceRefresh: refresh,
     });
 
-    const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000);
-    if (
-      cached.length > 0 &&
-      cached[0].createdAt > oneHourAgo
-    ) {
-      return NextResponse.json({ recommendations: cached, cached: true });
-    }
+    return NextResponse.json({ recommendations, cached: false });
+  } catch (error) {
+    console.error("Recommendations generation error:", error);
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Internal server error" },
+      { status: 500 }
+    );
   }
-
-  // Generate fresh recommendations
-  const recommendations = await generateRecommendations(user.student.id, {
-    forceRefresh: refresh,
-  });
-
-  return NextResponse.json({ recommendations, cached: false });
 }

@@ -62,22 +62,39 @@ export default function RecommendationsPage() {
     if (refresh) setRefreshing(true);
     else setLoading(true);
 
-    const res = await fetch(
-      `/api/recommendations${refresh ? "?refresh=true" : ""}`
-    );
-    const data = await res.json();
+    try {
+      const res = await fetch(
+        `/api/recommendations${refresh ? "?refresh=true" : ""}`
+      );
+      
+      let data;
+      try {
+        data = await res.json();
+      } catch (jsonError) {
+        toast.error("Failed to load recommendations", {
+          description: "Server error occurred. Please try again later.",
+        });
+        setLoading(false);
+        setRefreshing(false);
+        return;
+      }
 
-    if (!res.ok) {
-      toast.error("Failed to load recommendations", {
-        description: data.error,
+      if (!res.ok) {
+        toast.error("Failed to load recommendations", {
+          description: data.error || "Unknown error",
+        });
+      } else {
+        setRecommendations(data.recommendations);
+        setCached(data.cached);
+      }
+    } catch (error) {
+      toast.error("Network error", {
+        description: "Could not connect to the server.",
       });
-    } else {
-      setRecommendations(data.recommendations);
-      setCached(data.cached);
+    } finally {
+      setLoading(false);
+      setRefreshing(false);
     }
-
-    setLoading(false);
-    setRefreshing(false);
   }, []);
 
   useEffect(() => {
